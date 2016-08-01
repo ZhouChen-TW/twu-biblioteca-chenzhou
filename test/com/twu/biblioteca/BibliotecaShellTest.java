@@ -120,4 +120,20 @@ public class BibliotecaShellTest {
 
         assertTrue(message.getUserInput().contains("Thank you! Enjoy the book!\n\n"));
     }
+
+    @Test
+    public void given_current_state_is_checkout_when_user_input_valid_check_out_book_name_and_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, new BibliotecaService());
+        RouterMessage message = router.GetRouterMessage("math");
+
+        StringBuilder st = new StringBuilder();
+        st.append("****         This is our Main Menu       ****\n")
+                .append("*********************************************\n")
+                .append("****1.       List Books                  ****\n")
+                .append("****2.       CheckOut Books              ****\n")
+                .append("****0.       Quit                        ****\n")
+                .append("*********************************************\n")
+                .append("please input what your choose(0-2):\n");
+        assertTrue(message.getUserInput().contains(st.toString()));
+    }
 }
