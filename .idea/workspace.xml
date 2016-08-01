@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df8b113a-8635-4a64-a1ee-a4fd5c059436" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/impl/IActionHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/resource/BibliotecaMenu.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/resource/BibliotecaMenu.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/RouterMessage.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/routerMessage.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/impl/IActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/IActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaApp.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/BibliotecaApp.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Book.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/Book.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/RouterState.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/model/RouterState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/BibliotecaRouter.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/BibliotecaRouter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/RouterContext.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/RouterContext.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/RouterMessage.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/RouterMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/CheckoutActionHandler.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/CheckoutActionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/InitializeActionHandler.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/InitializeActionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/MainMenuActionHandler.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/MainMenuActionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/ReturnActionHandler.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/router/instance/ReturnActionHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/service/BibliotecaService.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/service/BibliotecaService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/shell/BibliotecaShell.class" afterPath="$PROJECT_DIR$/out/production/biblioteca/com/twu/biblioteca/shell/BibliotecaShell.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaServiceTest.class" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaServiceTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaShellTest.class" afterPath="$PROJECT_DIR$/out/test/biblioteca/com/twu/biblioteca/BibliotecaShellTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/BibliotecaApp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/model/Book.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/model/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/model/RouterState.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/model/RouterState.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/BibliotecaRouter.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/BibliotecaRouter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/RouterContext.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/RouterContext.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/CheckoutActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/CheckoutActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/InitializeActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/InitializeActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/MainMenuActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/MainMenuActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/ReturnActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/ReturnActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/shell/BibliotecaShell.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/shell/BibliotecaShell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java" />
-    </list>
+    <list default="true" id="df8b113a-8635-4a64-a1ee-a4fd5c059436" name="Default" comment="" />
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -55,7 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainMenuActionHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainMenuActionHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/MainMenuActionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="95">
@@ -63,6 +29,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -756,8 +732,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="3" y="23" width="1440" height="810" extended-state="0" />
-    <editor active="true" />
+    <frame x="3" y="23" width="1440" height="810" extended-state="1" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286908" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -811,14 +787,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -991,6 +959,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
