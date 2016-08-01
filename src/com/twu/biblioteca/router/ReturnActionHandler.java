@@ -26,6 +26,6 @@ public class ReturnActionHandler implements IActionHandler {
             return new RouterMessage("Thank you for returning the book.\n\n"+mainMenu.GetMainMenu(),false,true);
         }
 
-        return new RouterMessage("",false,true);
+        return new RouterMessage("That is not a valid book to return.\n\n",false,true);
     }
 }

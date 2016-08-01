@@ -165,4 +165,12 @@ public class BibliotecaShellTest {
         assertTrue(message.getUserInput().contains(bibliotecaMenu.GetMainMenu()));
     }
 
+    @Test
+    public void given_current_state_is_return_book_should_display_unsuccessful_message_when_user_return_an_unchecked_book_or_the_book_does_not_exist() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
+        RouterMessage message = router.GetRouterMessage("invaild names");
+
+        assertEquals(message.getUserInput(),"That is not a valid book to return.\n\n");
+    }
+
 }
