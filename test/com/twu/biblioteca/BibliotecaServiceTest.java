@@ -87,4 +87,10 @@ public class BibliotecaServiceTest {
         bibliotecaService.CheckoutBooks("math");
         assertTrue(bibliotecaService.ReturnBooks("math"));
     }
+
+    @Test
+    public void should_return_false_when_call_returnBook_if_the_book_has_not_been_checked_out_and_the_book_dose_not_exist(){
+        assertFalse(bibliotecaService.ReturnBooks("invaild name"));
+        assertFalse(bibliotecaService.ReturnBooks("english"));
+    }
 }
