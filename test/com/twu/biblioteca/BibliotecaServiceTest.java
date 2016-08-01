@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -53,7 +54,12 @@ public class BibliotecaServiceTest {
     }
 
     @Test
-    public void Should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists(){
+    public void should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists(){
         assertTrue(bibliotecaService.CheckoutBooks("math"));
+    }
+
+    @Test
+    public void should_return_false_when_call_checkoutBook_if_the_book_has_been_checked_out_or_the_book_exists(){
+        assertFalse(bibliotecaService.CheckoutBooks("invalid name"));
     }
 }
