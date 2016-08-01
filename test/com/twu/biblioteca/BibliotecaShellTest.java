@@ -133,5 +133,19 @@ public class BibliotecaShellTest {
         assertTrue(message.isWaitForInput());
     }
 
+    @Test
+    public void given_a_book_list_containing_return_books_when_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_contains_those_returned_ones() throws NoSuchProviderException {
+        bibliotecaService.CheckoutBooks("math");
+        bibliotecaService.CheckoutBooks("english");
+        bibliotecaService.ReturnBooks("english");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
+        RouterMessage message = router.GetRouterMessage("1");
+
+        assertEquals(message.getUserInput(),"****          All Book Detials           ****\n" +
+                "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
+                "*********************************************\n****    chinese  huawu  2011-09-14\n****    english " +
+                " danhu  2015-05-10\n"+bibliotecaMenu.GetMainMenu());
+
+    }
 
 }
