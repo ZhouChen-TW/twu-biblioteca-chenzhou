@@ -71,9 +71,15 @@ public class BibliotecaShellTest {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, new BibliotecaService());
         RouterMessage message = router.GetRouterMessage("invalid input");
 
-        assertEquals(message.getUserInput(),"Invalid input, Please try again\r\n\r\n****         This is our Main Menu       ****\n" +
-                "*********************************************\n****1.       List Books                  ****\n********************" +
-                "*************************\nplease input what your choose:\n");
+        StringBuilder st = new StringBuilder();
+        st.append("****         This is our Main Menu       ****\n")
+                .append("*********************************************\n")
+                .append("****1.       List Books                  ****\n")
+                .append("****2.       CheckOut Books              ****\n")
+                .append("****0.       Quit                        ****\n")
+                .append("*********************************************\n")
+                .append("please input what your choose(0-2):\n");
+        assertEquals(message.getUserInput(),"Invalid input, Please try again\n\n"+st.toString());
     }
 
     @Test
@@ -94,7 +100,7 @@ public class BibliotecaShellTest {
     }
 
     @Test
-    public void Given_a_book_list_containing_checked_out_book_When_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_except_for_those_checked_out_ones() throws NoSuchProviderException {
+    public void given_a_book_list_containing_checked_out_book_When_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_except_for_those_checked_out_ones() throws NoSuchProviderException {
         BibliotecaService bibliotecaService = new BibliotecaService();
         bibliotecaService.CheckoutBooks("math");
 
@@ -107,4 +113,11 @@ public class BibliotecaShellTest {
                 " danhu  2015-05-10\n"));
     }
 
+    @Test
+    public void should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, new BibliotecaService());
+        RouterMessage message = router.GetRouterMessage("math");
+
+        assertTrue(message.getUserInput().contains("Thank you! Enjoy the book!\n\n"));
+    }
 }

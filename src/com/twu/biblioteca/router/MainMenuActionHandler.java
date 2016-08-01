@@ -31,6 +31,6 @@ public class MainMenuActionHandler implements IActionHandler {
             myContext.setNestState(RouterState.Checkout);
             return new RouterMessage("",false,true);
         }
-        return new RouterMessage("Invalid input, Please try again\r\n\r\n"+myService.GetMainMenu(),false,true);
+        return new RouterMessage("Invalid input, Please try again\n\n"+myService.GetMainMenu(),false,true);
     }
 }
