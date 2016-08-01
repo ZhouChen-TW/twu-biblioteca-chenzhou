@@ -173,4 +173,13 @@ public class BibliotecaShellTest {
         assertEquals(message.getUserInput(),"That is not a valid book to return.\n\n");
     }
 
+    @Test
+    public void given_current_state_is_returnBook_when_user_input_an_invalid_return_book_name_and_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
+        bibliotecaService.CheckoutBooks("math");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
+        RouterMessage message = router.GetRouterMessage("invaild name");
+
+        assertTrue(message.getUserInput().contains(bibliotecaMenu.GetMainMenu()));
+    }
+
 }
