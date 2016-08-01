@@ -41,5 +41,13 @@ public class BibliotecaServiceTest {
                 "*********************************************\n****    Name                             ****\n" +
                 "*********************************************\n****    math\n****    chinese\n****    english\n"));
     }
-    
+
+    @Test
+    public void should_list_all_books_names_author_and_published_year(){
+        bibliotecaService.ListBooks();
+        assertTrue(outContent.toString().contains("****          All Book Detials           ****\n" +
+                "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
+                "*********************************************\n****    math  yangliu  2013-10-10\n" +
+                "****    chinese  huawu  2011-09-14\n****    english  danhu  2015-05-10\n"));
+    }
 }

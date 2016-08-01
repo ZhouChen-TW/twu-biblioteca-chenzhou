@@ -20,9 +20,9 @@ public class BibliotecaService {
     }
 
     public void LoadAllBookList(){
-        myAllBooks.add(new Book("math"));
-        myAllBooks.add(new Book("chinese"));
-        myAllBooks.add(new Book("english"));
+        myAllBooks.add(new Book("math","yangliu","2013-10-10"));
+        myAllBooks.add(new Book("chinese","huawu","2011-09-14"));
+        myAllBooks.add(new Book("english","danhu","2015-05-10"));
     }
 
     public void GetWelcomeMessage() {
@@ -33,14 +33,13 @@ public class BibliotecaService {
         StringBuilder st = new StringBuilder();
         st.append("****          All Book Detials           ****\n")
                 .append("*********************************************\n")
-                .append("****    Name                             ****\n")
+                .append("****    Name   PublishedYear  Author     ****\n")
                 .append("*********************************************\n");
         for (Book book : getMyAllBooks()) {
             if (!book.isCheckedOut()) {
-                st.append("****    "+book.getName() + "\n");
+                st.append("****    " + book.getName() + "  " + book.getAuthor() + "  " + book.getPublishedYear() + "\n");
             }
         }
-        st.append("*********************************************\n\n\n");
         System.out.println(st.toString());
     }
 }
