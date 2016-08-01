@@ -88,9 +88,23 @@ public class BibliotecaShellTest {
     @Test
     public void should_waiting_for_user_input_when_user_select_checkout_books_and_current_status_is_main_menu() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, new BibliotecaService());
-        RouterMessage message = router.GetRouterMessage("1");
+        RouterMessage message = router.GetRouterMessage("2");
 
         assertTrue(message.isWaitForInput());
+    }
+
+    @Test
+    public void Given_a_book_list_containing_checked_out_book_When_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_except_for_those_checked_out_ones() throws NoSuchProviderException {
+        BibliotecaService bibliotecaService = new BibliotecaService();
+        bibliotecaService.CheckoutBooks("math");
+
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
+        RouterMessage message = router.GetRouterMessage("1");
+
+        assertTrue(message.getUserInput().contains("****          All Book Detials           ****\n" +
+                "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
+                "*********************************************\n****    chinese  huawu  2011-09-14\n****    english " +
+                " danhu  2015-05-10\n"));
     }
 
 }
