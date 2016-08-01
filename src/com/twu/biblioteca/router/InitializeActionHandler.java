@@ -18,6 +18,6 @@ public class InitializeActionHandler implements IActionHandler {
     @Override
     public RouterMessage Handle(String userInput) {
         myContext.setNestState(RouterState.MainMenu);
-        return new RouterMessage(myService.GetWelcomeMessage(),false);
+        return new RouterMessage(myService.GetWelcomeMessage(),false,false);
     }
 }

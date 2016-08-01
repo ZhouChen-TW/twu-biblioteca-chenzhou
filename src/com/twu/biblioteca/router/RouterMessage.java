@@ -6,8 +6,9 @@ package com.twu.biblioteca.router;
 public class RouterMessage {
     private String  userInput;
     private boolean exit;
+    private boolean waitForInput;
 
-    public RouterMessage(String  userInput,boolean exit) {
+    public RouterMessage(String  userInput,boolean exit,boolean waitForInput) {
         this.userInput = userInput;
         this.exit = exit;
     }
@@ -26,5 +27,13 @@ public class RouterMessage {
 
     public void setExit(boolean exit) {
         this.exit = exit;
+    }
+
+    public boolean isWaitForInput() {
+        return waitForInput;
+    }
+
+    public void setWaitForInput(boolean waitForInput) {
+        this.waitForInput = waitForInput;
     }
 }

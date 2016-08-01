@@ -15,6 +15,7 @@ import java.io.PrintStream;
 import java.security.NoSuchProviderException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -73,6 +74,15 @@ public class BibliotecaShellTest {
         assertEquals(message.getUserInput(),"Invalid input, Please try again\r\n\r\n****         This is our Main Menu       ****\n" +
                 "*********************************************\n****1.       List Books                  ****\n********************" +
                 "*************************\nplease input what your choose:\n");
+    }
+
+    @Test
+    public void should_quit_when_user_input_is_quit_and_current_state_is_main_menu() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, new BibliotecaService());
+        RouterMessage message = router.GetRouterMessage("0");
+
+        assertTrue(message.isExit());
+        assertFalse(message.isWaitForInput());
     }
 
 }

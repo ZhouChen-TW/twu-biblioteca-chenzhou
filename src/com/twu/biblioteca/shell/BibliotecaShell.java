@@ -32,7 +32,9 @@ public class BibliotecaShell {
             RouterMessage message = router.GetRouterMessage(userInput);
             myOutputStream.write(message.getUserInput().getBytes());
             if (message.isExit()) { break; }
-            userInput = new Scanner(myInputStream).next();
+            if (message.isWaitForInput()){
+                userInput = new Scanner(myInputStream).next();
+            }
         }
     }
 }

@@ -18,11 +18,14 @@ public class MainMenuActionHandler implements IActionHandler {
     @Override
     public RouterMessage Handle(String userInput) {
         if (userInput==null) {
-            return new RouterMessage(myService.GetMainMenu(),false);
+            return new RouterMessage(myService.GetMainMenu(),false,true);
         }
         if (userInput.equals("1")) {
-            return new RouterMessage(myService.ListBooks()+myService.GetMainMenu(),false);
+            return new RouterMessage(myService.ListBooks()+myService.GetMainMenu(),false,true);
         }
-        return new RouterMessage("Invalid input, Please try again\r\n\r\n"+myService.GetMainMenu(),false);
+        if (userInput.equals("0")) {
+            return new RouterMessage("",true,false);
+        }
+        return new RouterMessage("Invalid input, Please try again\r\n\r\n"+myService.GetMainMenu(),false,true);
     }
 }
