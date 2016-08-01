@@ -33,4 +33,13 @@ public class BibliotecaServiceTest {
         bibliotecaService.GetWelcomeMessage();
         assertTrue(outContent.toString().contains("Welcome To Biblioteca Library!"));
     }
+
+    @Test
+    public void should_list_all_books_names_when_calling_listBooks_method(){
+        bibliotecaService.ListBooks();
+        assertTrue(outContent.toString().contains("****          All Book Detials           ****\n" +
+                "*********************************************\n****    Name                             ****\n" +
+                "*********************************************\n****    math\n****    chinese\n****    english\n"));
+    }
+    
 }
