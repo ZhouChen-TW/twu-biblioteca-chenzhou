@@ -9,10 +9,12 @@ import com.twu.biblioteca.service.BibliotecaService;
 public class ReturnActionHandler implements IActionHandler {
     private RouterContext myContext;
     private BibliotecaService myService;
+    private BibliotecaMenu mainMenu;
 
     public ReturnActionHandler(RouterContext myContext, BibliotecaService myService) {
         this.myContext = myContext;
         this.myService = myService;
+        mainMenu = new BibliotecaMenu();
     }
 
     @Override
@@ -21,7 +23,7 @@ public class ReturnActionHandler implements IActionHandler {
         if (returnSuccess)
         {
             myContext.setNestState(RouterState.MainMenu);
-            return new RouterMessage("Thank you for returning the book.\n\n",false,true);
+            return new RouterMessage("Thank you for returning the book.\n\n"+mainMenu.GetMainMenu(),false,true);
         }
 
         return new RouterMessage("",false,true);
