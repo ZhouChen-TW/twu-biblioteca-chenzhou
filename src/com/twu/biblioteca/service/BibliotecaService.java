@@ -25,8 +25,8 @@ public class BibliotecaService {
         myAllBooks.add(new Book("english","danhu","2015-05-10"));
     }
 
-    public void GetWelcomeMessage() {
-        System.out.println("Welcome To Biblioteca Library!");
+    public String GetWelcomeMessage() {
+        return "Welcome To Biblioteca Library!";
     }
 
     public void ListBooks() {

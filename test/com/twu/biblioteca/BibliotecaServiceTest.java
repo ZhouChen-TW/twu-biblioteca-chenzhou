@@ -15,11 +15,12 @@ import static org.junit.Assert.assertTrue;
  */
 public class BibliotecaServiceTest {
     private BibliotecaService bibliotecaService;
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private ByteArrayOutputStream outContent ;
 
     @Before
     public void setUp() throws Exception {
         bibliotecaService = new BibliotecaService();
+        outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
     }
 
