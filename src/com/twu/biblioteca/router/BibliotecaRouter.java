@@ -32,6 +32,9 @@ public class BibliotecaRouter {
         if(myContext.getCurrentState() == RouterState.Checkout) {
             return new CheckoutActionHandler(myContext, myService);
         }
+        if (myContext.getCurrentState() == RouterState.Return){
+            return new ReturnActionHandler(myContext, myService);
+        }
         throw new NoSuchProviderException("Not supported error");
     }
 }

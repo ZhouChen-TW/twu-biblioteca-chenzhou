@@ -145,7 +145,15 @@ public class BibliotecaShellTest {
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
                 "*********************************************\n****    chinese  huawu  2011-09-14\n****    english " +
                 " danhu  2015-05-10\n"+bibliotecaMenu.GetMainMenu());
+    }
 
+    @Test
+    public void should_display_successful_message_when_user_return_a_valid_book_and_continue_execution() throws NoSuchProviderException {
+        bibliotecaService.CheckoutBooks("math");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
+        RouterMessage message = router.GetRouterMessage("math");
+
+        assertEquals(message.getUserInput(),"Thank you for returning the book.\n\n");
     }
 
 }
