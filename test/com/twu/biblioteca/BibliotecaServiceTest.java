@@ -59,7 +59,17 @@ public class BibliotecaServiceTest {
     }
 
     @Test
-    public void should_return_false_when_call_checkoutBook_if_the_book_has_been_checked_out_or_the_book_exists(){
+    public void should_return_false_when_call_checkoutBook_if_the_book_has_been_checked_out_or_the_book_does_not_exist(){
         assertFalse(bibliotecaService.CheckoutBooks("invalid name"));
     }
+
+    @Test
+    public void Should_display_books_that_are_not_checked_out_when_calling_listBooks(){
+        bibliotecaService.CheckoutBooks("math");
+        assertEquals(bibliotecaService.ListBooks(),"****          All Book Detials           ****\n" +
+                "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
+                "*********************************************\n****    chinese  huawu  2011-09-14\n****    english " +
+                " danhu  2015-05-10\n");
+    }
+
 }
