@@ -1,5 +1,6 @@
 package com.twu.biblioteca.router;
 
+import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.service.BibliotecaService;
 
 /**
@@ -20,11 +21,15 @@ public class MainMenuActionHandler implements IActionHandler {
         if (userInput==null) {
             return new RouterMessage(myService.GetMainMenu(),false,true);
         }
+        if (userInput.equals("0")) {
+            return new RouterMessage("",true,false);
+        }
         if (userInput.equals("1")) {
             return new RouterMessage(myService.ListBooks()+myService.GetMainMenu(),false,true);
         }
-        if (userInput.equals("0")) {
-            return new RouterMessage("",true,false);
+        if (userInput.equals("2")) {
+            myContext.setNestState(RouterState.Checkout);
+            return new RouterMessage("",false,true);
         }
         return new RouterMessage("Invalid input, Please try again\r\n\r\n"+myService.GetMainMenu(),false,true);
     }

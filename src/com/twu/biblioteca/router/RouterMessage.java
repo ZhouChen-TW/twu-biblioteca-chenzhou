@@ -11,6 +11,7 @@ public class RouterMessage {
     public RouterMessage(String  userInput,boolean exit,boolean waitForInput) {
         this.userInput = userInput;
         this.exit = exit;
+        this.waitForInput = waitForInput;
     }
 
     public String getUserInput() {

@@ -48,8 +48,10 @@ public class BibliotecaService {
         st.append("****         This is our Main Menu       ****\n")
                 .append("*********************************************\n")
                 .append("****1.       List Books                  ****\n")
+                .append("****2.       CheckOut Books              ****\n")
+                .append("****0.       Quit                        ****\n")
                 .append("*********************************************\n")
-                .append("please input what your choose:\n");
+                .append("please input what your choose(0-2):\n");
         return st.toString();
     }
 

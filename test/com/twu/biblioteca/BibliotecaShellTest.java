@@ -85,4 +85,12 @@ public class BibliotecaShellTest {
         assertFalse(message.isWaitForInput());
     }
 
+    @Test
+    public void should_waiting_for_user_input_when_user_select_checkout_books_and_current_status_is_main_menu() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, new BibliotecaService());
+        RouterMessage message = router.GetRouterMessage("1");
+
+        assertTrue(message.isWaitForInput());
+    }
+
 }
