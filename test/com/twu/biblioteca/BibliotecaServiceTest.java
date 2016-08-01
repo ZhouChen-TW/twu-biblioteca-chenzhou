@@ -72,4 +72,10 @@ public class BibliotecaServiceTest {
                 " danhu  2015-05-10\n");
     }
 
+    @Test
+    public void should_return_true_when_call_returnBook_if_the_book_has_been_checked_out_and_the_book_exists(){
+        bibliotecaService.CheckoutBooks("math");
+        assertTrue(bibliotecaService.ReturnBooks("math"));
+    }
+
 }
