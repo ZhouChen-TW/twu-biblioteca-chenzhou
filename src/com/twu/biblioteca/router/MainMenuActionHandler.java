@@ -23,6 +23,6 @@ public class MainMenuActionHandler implements IActionHandler {
         if (userInput.equals("1")) {
             return new RouterMessage(myService.ListBooks()+myService.GetMainMenu(),false);
         }
-       return null;
+        return new RouterMessage("Invalid input, Please try again\r\n\r\n"+myService.GetMainMenu(),false);
     }
 }

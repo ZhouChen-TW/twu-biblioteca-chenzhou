@@ -56,6 +56,7 @@ public class BibliotecaShellTest {
     public void should_display_book_list_when_current_state_is_main_menu_and_user_input_is_list_books() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, new BibliotecaService());
         RouterMessage message = router.GetRouterMessage("1");
+
         assertEquals(message.getUserInput(),"****          All Book Detials           ****\n" +
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
                 "*********************************************\n****    math  yangliu  2013-10-10\n" +
@@ -64,5 +65,14 @@ public class BibliotecaShellTest {
                 " ****\n*********************************************\nplease input what your choose:\n");
     }
 
+    @Test
+    public void should_display_an_invalid_message_and_main_menu_when_user_input_is_not_list_books_and_current_state_is_main_menu() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, new BibliotecaService());
+        RouterMessage message = router.GetRouterMessage("invalid input");
+
+        assertEquals(message.getUserInput(),"Invalid input, Please try again\r\n\r\n****         This is our Main Menu       ****\n" +
+                "*********************************************\n****1.       List Books                  ****\n********************" +
+                "*************************\nplease input what your choose:\n");
+    }
 
 }
