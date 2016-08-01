@@ -5,9 +5,11 @@ package com.twu.biblioteca.router;
  */
 public class RouterMessage {
     private String  userInput;
+    private boolean exit;
 
-    public RouterMessage(String  userInput) {
+    public RouterMessage(String  userInput,boolean exit) {
         this.userInput = userInput;
+        this.exit = exit;
     }
 
     public String getUserInput() {
@@ -18,4 +20,11 @@ public class RouterMessage {
         this.userInput = userInput;
     }
 
+    public boolean isExit() {
+        return exit;
+    }
+
+    public void setExit(boolean exit) {
+        this.exit = exit;
+    }
 }

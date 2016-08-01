@@ -26,7 +26,7 @@ public class BibliotecaService {
     }
 
     public String GetWelcomeMessage() {
-        return "Welcome To Biblioteca Library!";
+        return "Welcome To Biblioteca Library!\n";
     }
 
     public void ListBooks() {
@@ -41,5 +41,15 @@ public class BibliotecaService {
             }
         }
         System.out.println(st.toString());
+    }
+
+    public String GetMainMenu(){
+        StringBuilder st = new StringBuilder();
+        st.append("****         This is our Main Menu       ****\n")
+                .append("*********************************************\n")
+                .append("****1.       List Books                  ****\n")
+                .append("*********************************************\n")
+                .append("please input what your choose:\n");
+        return st.toString();
     }
 }

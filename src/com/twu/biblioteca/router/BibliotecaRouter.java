@@ -18,7 +18,11 @@ public class BibliotecaRouter {
 
     public RouterMessage GetRouterMessage() {
         if(myContext.getCurrentState() == RouterState.Initializing){
-            return new RouterMessage(myService.GetWelcomeMessage());
+            myContext.setNestState(RouterState.MainMenu);
+            return new RouterMessage(myService.GetWelcomeMessage(),false);
+        }
+        if(myContext.getCurrentState() == RouterState.MainMenu){
+            return new RouterMessage(myService.GetMainMenu(),true);
         }
         return null;
     }

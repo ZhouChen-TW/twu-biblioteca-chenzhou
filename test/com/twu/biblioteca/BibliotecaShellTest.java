@@ -37,4 +37,12 @@ public class BibliotecaShellTest {
         bibliotecaShell.Execute();
         assertTrue(outContent.toString().contains("Welcome To Biblioteca Library!"));
     }
+
+    @Test
+    public void should_display_main_menu_when_current_state_is_main_menu() throws IOException {
+        bibliotecaShell.Execute();
+        assertTrue(outContent.toString().contains("Welcome To Biblioteca Library!\n****         This is our Main Menu       ****\n" +
+                "*********************************************\n****1.       List Books                  ****\n********************" +
+                "*************************\nplease input what your choose:\n"));
+    }
 }

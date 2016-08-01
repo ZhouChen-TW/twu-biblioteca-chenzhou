@@ -7,6 +7,7 @@ import com.twu.biblioteca.service.BibliotecaService;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 /**
  * Created by chenzhou on 8/1/16.
@@ -20,7 +21,12 @@ public class BibliotecaShell {
 
     public void Execute() throws IOException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Initializing, new BibliotecaService());
-        RouterMessage message = router.GetRouterMessage();
-        myOutputStream.write(message.getUserInput().getBytes());
+
+        while (true)
+        {
+            RouterMessage message = router.GetRouterMessage();
+            myOutputStream.write(message.getUserInput().getBytes());
+            if (message.isExit()) { break; }
+        }
     }
 }

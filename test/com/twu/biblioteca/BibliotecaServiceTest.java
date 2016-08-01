@@ -32,7 +32,7 @@ public class BibliotecaServiceTest {
     @Test
     public void Should_get_welcome_message_when_calling_getWelcomeMessage_method(){
         bibliotecaService.GetWelcomeMessage();
-        assertTrue(outContent.toString().contains("Welcome To Biblioteca Library!"));
+        assertTrue(outContent.toString().contains("Welcome To Biblioteca Library!\n"));
     }
 
     @Test
