@@ -136,4 +136,15 @@ public class BibliotecaShellTest {
                 .append("please input what your choose(0-2):\n");
         assertTrue(message.getUserInput().contains(st.toString()));
     }
+
+    @Test
+    public void given_current_state_is_checkout_should_display_unsuccessful_message_when_user_select_a_checked_book_or_the_book_does_not_exist() throws NoSuchProviderException {
+        BibliotecaService bibliotecaService = new BibliotecaService();
+        bibliotecaService.CheckoutBooks("math");
+
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, bibliotecaService);
+        RouterMessage message = router.GetRouterMessage("invalid input");
+
+        assertTrue(message.getUserInput().contains("That book is not available.\n\n"));
+    }
 }

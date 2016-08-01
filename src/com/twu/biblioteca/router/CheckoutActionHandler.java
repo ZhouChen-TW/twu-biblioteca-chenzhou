@@ -24,6 +24,6 @@ public class CheckoutActionHandler implements IActionHandler {
             return new RouterMessage("Thank you! Enjoy the book!\n\n"+myService.GetMainMenu(),false,true);
         }
 
-        return new RouterMessage("",true,false);
+        return new RouterMessage("That book is not available.\n\n"+myService.GetMainMenu(),false,true);
     }
 }
