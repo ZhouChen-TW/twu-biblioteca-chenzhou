@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.RouterState;
-import com.twu.biblioteca.router.BibliotecaMenu;
+import com.twu.biblioteca.router.resource.BibliotecaMenu;
 import com.twu.biblioteca.router.BibliotecaRouter;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.service.BibliotecaService;

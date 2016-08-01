@@ -1,4 +1,4 @@
-package com.twu.biblioteca.router;
+package com.twu.biblioteca.router.resource;
 
 /**
  * Created by chenzhou on 8/1/16.
