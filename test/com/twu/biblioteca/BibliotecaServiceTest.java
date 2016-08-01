@@ -14,9 +14,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-/**
- * Created by chenzhou on 8/1/16.
- */
+
 public class BibliotecaServiceTest {
     private BibliotecaService bibliotecaService;
     private ByteArrayOutputStream outContent ;
@@ -35,12 +33,12 @@ public class BibliotecaServiceTest {
 
     @Test
     public void Should_get_welcome_message_when_calling_getWelcomeMessage_method(){
-        assertEquals(bibliotecaService.GetWelcomeMessage(),"Welcome To Biblioteca Library!\n");
+        assertEquals(bibliotecaService.getWelcomeMessage(),"Welcome To Biblioteca Library!\n");
     }
 
     @Test
     public void should_list_all_books_names_when_calling_listBooks_method(){
-        List<Book> books = bibliotecaService.ListBooks();
+        List<Book> books = bibliotecaService.listBooks();
         assertEquals("math",books.get(0).getName());
         assertEquals("chinese",books.get(1).getName());
         assertEquals("english",books.get(2).getName());
@@ -48,7 +46,7 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_list_all_books_names_author_and_published_year(){
-        List<Book> books = bibliotecaService.ListBooks();
+        List<Book> books = bibliotecaService.listBooks();
         assertEquals("math",books.get(0).getName());
         assertEquals("chinese",books.get(1).getName());
         assertEquals("english",books.get(2).getName());
@@ -62,18 +60,18 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists(){
-        assertTrue(bibliotecaService.CheckoutBooks("math"));
+        assertTrue(bibliotecaService.checkoutBooks("math"));
     }
 
     @Test
     public void should_return_false_when_call_checkoutBook_if_the_book_has_been_checked_out_or_the_book_does_not_exist(){
-        assertFalse(bibliotecaService.CheckoutBooks("invalid name"));
+        assertFalse(bibliotecaService.checkoutBooks("invalid name"));
     }
 
     @Test
     public void Should_display_books_that_are_not_checked_out_when_calling_listBooks(){
-        bibliotecaService.CheckoutBooks("math");
-        List<Book> books = bibliotecaService.ListBooks();
+        bibliotecaService.checkoutBooks("math");
+        List<Book> books = bibliotecaService.listBooks();
         assertEquals("chinese",books.get(0).getName());
         assertEquals("english",books.get(1).getName());
         assertEquals("huawu",books.get(0).getAuthor());
@@ -84,20 +82,20 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_return_true_when_call_returnBook_if_the_book_has_been_checked_out_and_the_book_exists(){
-        bibliotecaService.CheckoutBooks("math");
-        assertTrue(bibliotecaService.ReturnBooks("math"));
+        bibliotecaService.checkoutBooks("math");
+        assertTrue(bibliotecaService.returnBooks("math"));
     }
 
     @Test
     public void should_return_false_when_call_returnBook_if_the_book_has_not_been_checked_out_or_the_book_dose_not_exist(){
-        assertFalse(bibliotecaService.ReturnBooks("invaild name"));
-        assertFalse(bibliotecaService.ReturnBooks("english"));
+        assertFalse(bibliotecaService.returnBooks("invaild name"));
+        assertFalse(bibliotecaService.returnBooks("english"));
     }
 
     @Test
     public void should_display_books_that_are_return_when_calling_list_books(){
-        bibliotecaService.CheckoutBooks("math");
-        List<Book> books = bibliotecaService.ListBooks();
+        bibliotecaService.checkoutBooks("math");
+        List<Book> books = bibliotecaService.listBooks();
         assertEquals("chinese",books.get(0).getName());
         assertEquals("english",books.get(1).getName());
         assertEquals("huawu",books.get(0).getAuthor());
@@ -105,8 +103,8 @@ public class BibliotecaServiceTest {
         assertEquals("2011-09-14",books.get(0).getPublishedYear());
         assertEquals("2015-05-10",books.get(1).getPublishedYear());
 
-        bibliotecaService.ReturnBooks("math");
-        List<Book> booksReturn = bibliotecaService.ListBooks();
+        bibliotecaService.returnBooks("math");
+        List<Book> booksReturn = bibliotecaService.listBooks();
         assertEquals("math",booksReturn.get(0).getName());
         assertEquals("chinese",booksReturn.get(1).getName());
         assertEquals("english",booksReturn.get(2).getName());

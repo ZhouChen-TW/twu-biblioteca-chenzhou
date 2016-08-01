@@ -1,7 +1,6 @@
 package com.twu.biblioteca.router;
 
 import com.twu.biblioteca.model.RouterState;
-import com.twu.biblioteca.router.impl.IActionHandler;
 import com.twu.biblioteca.router.instance.CheckoutActionHandler;
 import com.twu.biblioteca.router.instance.InitializeActionHandler;
 import com.twu.biblioteca.router.instance.MainMenuActionHandler;
@@ -11,9 +10,6 @@ import com.twu.biblioteca.service.BibliotecaService;
 import java.security.NoSuchProviderException;
 
 
-/**
- * Created by chenzhou on 8/1/16.
- */
 public class BibliotecaRouter {
     private BibliotecaService myService;
     private RouterContext myContext;
@@ -23,11 +19,11 @@ public class BibliotecaRouter {
         this.myContext = new RouterContext(initialState);
     }
 
-    public RouterMessage GetRouterMessage(String userInput) throws NoSuchProviderException {
-        return GetActionHandler().Handle(userInput);
+    public routerMessage getRouterMessage(String userInput) throws NoSuchProviderException {
+        return getActionHandler().handle(userInput);
     }
 
-    IActionHandler GetActionHandler() throws NoSuchProviderException {
+    private IActionHandler getActionHandler() throws NoSuchProviderException {
         if(myContext.getCurrentState() == RouterState.Initializing) {
             return new InitializeActionHandler(myContext, myService);
         }

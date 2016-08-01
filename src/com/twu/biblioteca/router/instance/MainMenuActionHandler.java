@@ -3,9 +3,8 @@ package com.twu.biblioteca.router.instance;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.router.RouterContext;
-import com.twu.biblioteca.router.RouterMessage;
-import com.twu.biblioteca.router.impl.IActionHandler;
-import com.twu.biblioteca.router.resource.BibliotecaMenu;
+import com.twu.biblioteca.router.routerMessage;
+import com.twu.biblioteca.router.IActionHandler;
 import com.twu.biblioteca.service.BibliotecaService;
 
 import java.util.List;
@@ -13,47 +12,56 @@ import java.util.List;
 public class MainMenuActionHandler implements IActionHandler {
     private RouterContext myContext;
     private BibliotecaService myService;
-    private BibliotecaMenu mainMenu;
 
     public MainMenuActionHandler(RouterContext myContext, BibliotecaService myService) {
         this.myContext = myContext;
         this.myService = myService;
-        mainMenu = new BibliotecaMenu();
     }
 
     @Override
-    public RouterMessage Handle(String userInput) {
-        if (userInput==null) {
-            return new RouterMessage(mainMenu.GetMainMenu(),false,true);
+    public routerMessage handle(String userInput) {
+        if (userInput == null) {
+            return new routerMessage(getMainMenu(), false, true);
         }
         if (userInput.equals("0")) {
-            return new RouterMessage("",true,false);
+            return new routerMessage("", true, false);
         }
         if (userInput.equals("1")) {
-            List<Book> myAllBooks = myService.ListBooks();
-            return new RouterMessage(FomartListBooks(myAllBooks) + mainMenu.GetMainMenu(),false,true);
+            List<Book> myAllBooks = myService.listBooks();
+            return new routerMessage(formatListBooks(myAllBooks) + getMainMenu(), false, true);
         }
         if (userInput.equals("2")) {
             myContext.setNestState(RouterState.Checkout);
-            return new RouterMessage("",false,true);
+            return new routerMessage("", false, true);
         }
         if (userInput.equals("3")) {
             myContext.setNestState(RouterState.Return);
-            return new RouterMessage("",false,true);
+            return new routerMessage("", false, true);
         }
-        return new RouterMessage("Invalid input, Please try again\n\n" + mainMenu.GetMainMenu(),false,true);
+        return new routerMessage("Select a valid option!\n\n", false, true);
     }
 
-    private String FomartListBooks(List<Book> myAllBooks) {
+    private String formatListBooks(List<Book> myAllBooks) {
         StringBuilder st = new StringBuilder();
         st.append("****          All Book Detials           ****\n")
                 .append("*********************************************\n")
                 .append("****    Name   PublishedYear  Author     ****\n")
                 .append("*********************************************\n");
         for (Book book : myAllBooks) {
-            st.append("****    " + book.getName() + "  " + book.getAuthor() + "  " + book.getPublishedYear() + "\n");
+            st.append("****    ").append(book.getName()).append("  ").append(book.getAuthor()).append("  ").append(book.getPublishedYear()).append("\n");
 
         }
         return st.toString();
+    }
+
+    private static String getMainMenu(){
+        return "****         This is our Main Menu       ****\n" +
+                "*********************************************\n" +
+                "****1.       List Books                  ****\n" +
+                "****2.       CheckOut Books              ****\n" +
+                "****3.       Return Books                ****\n" +
+                "****0.       Quit                        ****\n" +
+                "*********************************************\n" +
+                "please input what your choose:\n";
     }
 }
