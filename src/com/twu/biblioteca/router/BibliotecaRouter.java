@@ -3,6 +3,8 @@ package com.twu.biblioteca.router;
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.service.BibliotecaService;
 
+import java.security.NoSuchProviderException;
+
 
 /**
  * Created by chenzhou on 8/1/16.
@@ -16,14 +18,17 @@ public class BibliotecaRouter {
         this.myContext = new RouterContext(initialState);
     }
 
-    public RouterMessage GetRouterMessage() {
-        if(myContext.getCurrentState() == RouterState.Initializing){
-            myContext.setNestState(RouterState.MainMenu);
-            return new RouterMessage(myService.GetWelcomeMessage(),false);
+    public RouterMessage GetRouterMessage(String userInput) throws NoSuchProviderException {
+        return GetActionHandler().Handle(userInput);
+    }
+
+    IActionHandler GetActionHandler() throws NoSuchProviderException {
+        if(myContext.getCurrentState() == RouterState.Initializing) {
+            return new InitializeActionHandler(myContext, myService);
         }
-        if(myContext.getCurrentState() == RouterState.MainMenu){
-            return new RouterMessage(myService.GetMainMenu(),true);
+        if (myContext.getCurrentState() == RouterState.MainMenu) {
+            return new MainMenuActionHandler(myContext, myService);
         }
-        return null;
+        throw new NoSuchProviderException("Not supported error");
     }
 }

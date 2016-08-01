@@ -29,7 +29,7 @@ public class BibliotecaService {
         return "Welcome To Biblioteca Library!\n";
     }
 
-    public void ListBooks() {
+    public String ListBooks() {
         StringBuilder st = new StringBuilder();
         st.append("****          All Book Detials           ****\n")
                 .append("*********************************************\n")
@@ -40,7 +40,7 @@ public class BibliotecaService {
                 st.append("****    " + book.getName() + "  " + book.getAuthor() + "  " + book.getPublishedYear() + "\n");
             }
         }
-        System.out.println(st.toString());
+        return st.toString();
     }
 
     public String GetMainMenu(){

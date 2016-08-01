@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -31,8 +32,7 @@ public class BibliotecaServiceTest {
 
     @Test
     public void Should_get_welcome_message_when_calling_getWelcomeMessage_method(){
-        bibliotecaService.GetWelcomeMessage();
-        assertTrue(outContent.toString().contains("Welcome To Biblioteca Library!\n"));
+        assertEquals(bibliotecaService.GetWelcomeMessage(),"Welcome To Biblioteca Library!\n");
     }
 
     @Test
