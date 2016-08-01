@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.service.BibliotecaService;
 import org.junit.After;
 import org.junit.Before;
@@ -7,6 +8,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -38,19 +40,24 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_list_all_books_names_when_calling_listBooks_method(){
-        bibliotecaService.ListBooks();
-        assertTrue(outContent.toString().contains("****          All Book Detials           ****\n" +
-                "*********************************************\n****    Name                             ****\n" +
-                "*********************************************\n****    math\n****    chinese\n****    english\n"));
+        List<Book> books = bibliotecaService.ListBooks();
+        assertEquals("math",books.get(0).getName());
+        assertEquals("chinese",books.get(1).getName());
+        assertEquals("english",books.get(2).getName());
     }
 
     @Test
     public void should_list_all_books_names_author_and_published_year(){
-        bibliotecaService.ListBooks();
-        assertTrue(outContent.toString().contains("****          All Book Detials           ****\n" +
-                "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
-                "*********************************************\n****    math  yangliu  2013-10-10\n" +
-                "****    chinese  huawu  2011-09-14\n****    english  danhu  2015-05-10\n"));
+        List<Book> books = bibliotecaService.ListBooks();
+        assertEquals("math",books.get(0).getName());
+        assertEquals("chinese",books.get(1).getName());
+        assertEquals("english",books.get(2).getName());
+        assertEquals("yangliu",books.get(0).getAuthor());
+        assertEquals("huawu",books.get(1).getAuthor());
+        assertEquals("danhu",books.get(2).getAuthor());
+        assertEquals("2013-10-10",books.get(0).getPublishedYear());
+        assertEquals("2011-09-14",books.get(1).getPublishedYear());
+        assertEquals("2015-05-10",books.get(2).getPublishedYear());
     }
 
     @Test
@@ -66,10 +73,13 @@ public class BibliotecaServiceTest {
     @Test
     public void Should_display_books_that_are_not_checked_out_when_calling_listBooks(){
         bibliotecaService.CheckoutBooks("math");
-        assertEquals(bibliotecaService.ListBooks(),"****          All Book Detials           ****\n" +
-                "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
-                "*********************************************\n****    chinese  huawu  2011-09-14\n****    english " +
-                " danhu  2015-05-10\n");
+        List<Book> books = bibliotecaService.ListBooks();
+        assertEquals("chinese",books.get(0).getName());
+        assertEquals("english",books.get(1).getName());
+        assertEquals("huawu",books.get(0).getAuthor());
+        assertEquals("danhu",books.get(1).getAuthor());
+        assertEquals("2011-09-14",books.get(0).getPublishedYear());
+        assertEquals("2015-05-10",books.get(1).getPublishedYear());
     }
 
     @Test
@@ -77,5 +87,4 @@ public class BibliotecaServiceTest {
         bibliotecaService.CheckoutBooks("math");
         assertTrue(bibliotecaService.ReturnBooks("math"));
     }
-
 }

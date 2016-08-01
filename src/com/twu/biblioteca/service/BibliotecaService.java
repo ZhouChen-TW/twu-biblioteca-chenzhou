@@ -29,30 +29,14 @@ public class BibliotecaService {
         return "Welcome To Biblioteca Library!\n";
     }
 
-    public String ListBooks() {
-        StringBuilder st = new StringBuilder();
-        st.append("****          All Book Detials           ****\n")
-                .append("*********************************************\n")
-                .append("****    Name   PublishedYear  Author     ****\n")
-                .append("*********************************************\n");
+    public List<Book> ListBooks() {
+        List<Book> myAvaiableBooks = new ArrayList<Book>();
         for (Book book : getMyAllBooks()) {
             if (!book.isCheckedOut()) {
-                st.append("****    " + book.getName() + "  " + book.getAuthor() + "  " + book.getPublishedYear() + "\n");
+                myAvaiableBooks.add(book);
             }
         }
-        return st.toString();
-    }
-
-    public String GetMainMenu(){
-        StringBuilder st = new StringBuilder();
-        st.append("****         This is our Main Menu       ****\n")
-                .append("*********************************************\n")
-                .append("****1.       List Books                  ****\n")
-                .append("****2.       CheckOut Books              ****\n")
-                .append("****0.       Quit                        ****\n")
-                .append("*********************************************\n")
-                .append("please input what your choose(0-2):\n");
-        return st.toString();
+        return myAvaiableBooks;
     }
 
     public boolean CheckoutBooks(String bookName) {
