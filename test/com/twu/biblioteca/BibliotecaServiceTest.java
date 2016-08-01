@@ -95,7 +95,7 @@ public class BibliotecaServiceTest {
     }
 
     @Test
-    public void Should_display_books_that_are_return_when_calling_listBooks(){
+    public void should_display_books_that_are_return_when_calling_list_books(){
         bibliotecaService.CheckoutBooks("math");
         List<Book> books = bibliotecaService.ListBooks();
         assertEquals("chinese",books.get(0).getName());

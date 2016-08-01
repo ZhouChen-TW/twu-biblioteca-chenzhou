@@ -33,6 +33,10 @@ public class MainMenuActionHandler implements IActionHandler {
             myContext.setNestState(RouterState.Checkout);
             return new RouterMessage("",false,true);
         }
+        if (userInput.equals("3")) {
+            myContext.setNestState(RouterState.Return);
+            return new RouterMessage("",false,true);
+        }
         return new RouterMessage("Invalid input, Please try again\n\n"+mainMenu.GetMainMenu(),false,true);
     }
 
