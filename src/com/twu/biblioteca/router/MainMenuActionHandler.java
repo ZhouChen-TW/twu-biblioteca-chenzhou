@@ -27,7 +27,7 @@ public class MainMenuActionHandler implements IActionHandler {
         }
         if (userInput.equals("1")) {
             List<Book> myAllBooks = myService.ListBooks();
-            return new RouterMessage(FomartListBooks(myAllBooks)+mainMenu.GetMainMenu(),false,true);
+            return new RouterMessage(FomartListBooks(myAllBooks) + mainMenu.GetMainMenu(),false,true);
         }
         if (userInput.equals("2")) {
             myContext.setNestState(RouterState.Checkout);
@@ -37,7 +37,7 @@ public class MainMenuActionHandler implements IActionHandler {
             myContext.setNestState(RouterState.Return);
             return new RouterMessage("",false,true);
         }
-        return new RouterMessage("Invalid input, Please try again\n\n"+mainMenu.GetMainMenu(),false,true);
+        return new RouterMessage("Invalid input, Please try again\n\n" + mainMenu.GetMainMenu(),false,true);
     }
 
     private String FomartListBooks(List<Book> myAllBooks) {

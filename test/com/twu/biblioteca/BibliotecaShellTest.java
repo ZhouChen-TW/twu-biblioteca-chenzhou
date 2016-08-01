@@ -153,7 +153,7 @@ public class BibliotecaShellTest {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
         RouterMessage message = router.GetRouterMessage("math");
 
-        assertEquals(message.getUserInput(),"Thank you for returning the book.\n\n");
+        assertTrue(message.getUserInput().contains("Thank you for returning the book.\n\n"));
     }
 
     @Test
@@ -170,7 +170,7 @@ public class BibliotecaShellTest {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
         RouterMessage message = router.GetRouterMessage("invaild names");
 
-        assertEquals(message.getUserInput(),"That is not a valid book to return.\n\n");
+        assertTrue(message.getUserInput().contains("That is not a valid book to return.\n\n"));
     }
 
     @Test

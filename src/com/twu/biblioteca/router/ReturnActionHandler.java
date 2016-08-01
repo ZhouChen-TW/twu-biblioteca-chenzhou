@@ -23,9 +23,9 @@ public class ReturnActionHandler implements IActionHandler {
         if (returnSuccess)
         {
             myContext.setNestState(RouterState.MainMenu);
-            return new RouterMessage("Thank you for returning the book.\n\n"+mainMenu.GetMainMenu(),false,true);
+            return new RouterMessage("Thank you for returning the book.\n\n" + mainMenu.GetMainMenu(),false,true);
         }
 
-        return new RouterMessage("That is not a valid book to return.\n\n"+mainMenu.GetMainMenu(),false,true);
+        return new RouterMessage("That is not a valid book to return.\n\n" + mainMenu.GetMainMenu(),false,true);
     }
 }

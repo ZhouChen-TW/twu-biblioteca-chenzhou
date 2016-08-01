@@ -23,9 +23,9 @@ public class CheckoutActionHandler implements IActionHandler {
         if (checkoutSuccess)
         {
             myContext.setNestState(RouterState.MainMenu);
-            return new RouterMessage("Thank you! Enjoy the book!\n\n"+mainMenu.GetMainMenu(),false,true);
+            return new RouterMessage("Thank you! Enjoy the book!\n\n" + mainMenu.GetMainMenu(),false,true);
         }
 
-        return new RouterMessage("That book is not available.\n\n"+mainMenu.GetMainMenu(),false,true);
+        return new RouterMessage("That book is not available.\n\n" + mainMenu.GetMainMenu(),false,true);
     }
 }
