@@ -52,4 +52,18 @@ public class BibliotecaService {
                 .append("please input what your choose:\n");
         return st.toString();
     }
+
+    public boolean CheckoutBooks(String bookName) {
+        for (Book book : getMyAllBooks()) {
+            if (!book.isCheckedOut()) {
+                if (bookName.equals(book.getName())){
+                    book.setCheckedOut(true);
+                    return true;
+                }
+            }else {
+                return false;
+            }
+        }
+        return false;
+    }
 }
