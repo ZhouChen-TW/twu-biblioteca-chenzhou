@@ -1,6 +1,7 @@
 package com.twu.biblioteca.service;
 
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class BibliotecaService {
     private List<Book> myAllBooks = new ArrayList<Book>();
+    private List<Movie> myAllMovies = new ArrayList<Movie>();
 
     public BibliotecaService() {
         loadAllBookList();
@@ -17,10 +19,21 @@ public class BibliotecaService {
         return myAllBooks;
     }
 
+    public List<Movie> getMyAllMovies() {
+        return myAllMovies;
+    }
+
     private void loadAllBookList(){
         myAllBooks.add(new Book("math","yangliu","2013-10-10"));
         myAllBooks.add(new Book("chinese","huawu","2011-09-14"));
         myAllBooks.add(new Book("english","danhu","2015-05-10"));
+    }
+
+    public List<Movie> listMoves(){
+        myAllMovies.add(new Movie("name0","1990","director0","unrated"));
+        myAllMovies.add(new Movie("name1","1991","director1","1"));
+        myAllMovies.add(new Movie("name2","1992","director2","2"));
+        return  myAllMovies;
     }
 
     public String getWelcomeMessage() {

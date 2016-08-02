@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.service.BibliotecaService;
 import org.junit.After;
 import org.junit.Before;
@@ -114,5 +115,24 @@ public class BibliotecaServiceTest {
         assertEquals("2013-10-10",booksReturn.get(0).getPublishedYear());
         assertEquals("2011-09-14",booksReturn.get(1).getPublishedYear());
         assertEquals("2015-05-10",booksReturn.get(2).getPublishedYear());
+    }
+
+    @Test
+    public void should_list_all_movies_with_name_year_director_and_movie_rating_when_calling_list_movies(){
+        List<Movie> movies = bibliotecaService.listMoves();
+        assertEquals("name0",movies.get(0).getName());
+        assertEquals("1990",movies.get(0).getYear());
+        assertEquals("director0",movies.get(0).getDirector());
+        assertEquals("unrated",movies.get(0).getMovieRating());
+
+        assertEquals("name1",movies.get(1).getName());
+        assertEquals("1991",movies.get(1).getYear());
+        assertEquals("director1",movies.get(1).getDirector());
+        assertEquals("1",movies.get(1).getMovieRating());
+
+        assertEquals("name2",movies.get(2).getName());
+        assertEquals("1992",movies.get(2).getYear());
+        assertEquals("director2",movies.get(2).getDirector());
+        assertEquals("2",movies.get(2).getMovieRating());
     }
 }

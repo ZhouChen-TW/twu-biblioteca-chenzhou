@@ -28,7 +28,7 @@ public class MainMenuActionHandler implements IActionHandler {
         }
         if (userInput.equals("1")) {
             List<Book> myAllBooks = myService.listBooks();
-            return new routerMessage(formatListBooks(myAllBooks) + getMainMenu(), false, true);
+            return new routerMessage(formatListBooks(myAllBooks), false, true);
         }
         if (userInput.equals("2")) {
             myContext.setNestState(RouterState.Checkout);
