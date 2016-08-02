@@ -17,6 +17,9 @@ public class LoginActionHandler implements IActionHandler {
 
     @Override
     public RouterMessage handle(String userInput) {
+        if(userInput == null){
+            return new RouterMessage("please input your message with this format (library number,password)", false, true);
+        }
         boolean checkoutLogin = myService.checkoutLogin(userInput);
         if(checkoutLogin){
             myContext.setNestState(RouterState.MainMenu);

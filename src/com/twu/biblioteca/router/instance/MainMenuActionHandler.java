@@ -3,6 +3,7 @@ package com.twu.biblioteca.router.instance;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.RouterState;
+import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.router.RouterContext;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.router.IActionHandler;
@@ -21,6 +22,8 @@ public class MainMenuActionHandler implements IActionHandler {
 
     @Override
     public RouterMessage handle(String userInput) {
+        User user = myService.getUser();
+
         if (userInput == null) {
             return new RouterMessage(getMainMenu(), false, true);
         }
@@ -32,22 +35,37 @@ public class MainMenuActionHandler implements IActionHandler {
             return new RouterMessage(formatListBooks(myAllBooks), false, false);
         }
         if (userInput.equals("2")) {
-            myContext.setNestState(RouterState.CheckoutBooks);
+            if (user.isLoginState()){
+                myContext.setNestState(RouterState.CheckoutBooks);
+                return new RouterMessage("", false, true);
+            }
+            myContext.setNestState(RouterState.Login);
             return new RouterMessage("", false, true);
         }
         if (userInput.equals("3")) {
-            myContext.setNestState(RouterState.Return);
-            return new RouterMessage("", false, true);
+            if (user.isLoginState()){
+                myContext.setNestState(RouterState.Return);
+                return new RouterMessage("", false, true);
+            }
+            myContext.setNestState(RouterState.Login);
+            return new RouterMessage("please input your message with this format (library number,password)", false, true);
         }
         if (userInput.equals("4")) {
             List<Movie> myAllMovies = myService.listMoves();
             return new RouterMessage(formatListMovies(myAllMovies), false,false);
         }
         if (userInput.equals("5")) {
-            myContext.setNestState(RouterState.CheckoutMovies);
-            return new RouterMessage("", false, true);
+            if (user.isLoginState()){
+                myContext.setNestState(RouterState.CheckoutMovies);
+                return new RouterMessage("", false, true);
+            }
+            myContext.setNestState(RouterState.Login);
+            return new RouterMessage("please input your message with this format (library number,password)", false, true);
         }
         if (userInput.equals("6")) {
+            if (user.isLoginState()){
+                return new RouterMessage("",false,false);
+            }
             myContext.setNestState(RouterState.Login);
             return new RouterMessage("please input your message with this format (library number,password)", false, true);
         }

@@ -34,6 +34,12 @@ public class BibliotecaService {
         myAllMovies.add(new Movie("name2","1992","director2","2"));
     }
 
+    private void loadAllBookList(){
+        myAllBooks.add(new Book("math","yangliu","2013-10-10"));
+        myAllBooks.add(new Book("chinese","huawu","2011-09-14"));
+        myAllBooks.add(new Book("english","danhu","2015-05-10"));
+    }
+
     private List<Book> getMyAllBooks() {
         return myAllBooks;
     }
@@ -44,16 +50,6 @@ public class BibliotecaService {
 
     public List<User> getMyAllUsers() {
         return myAllUsers;
-    }
-
-    private void loadAllBookList(){
-        myAllBooks.add(new Book("math","yangliu","2013-10-10"));
-        myAllBooks.add(new Book("chinese","huawu","2011-09-14"));
-        myAllBooks.add(new Book("english","danhu","2015-05-10"));
-    }
-
-    public List<Movie> listMoves(){
-        return  myAllMovies;
     }
 
     public User getUser() {
@@ -76,6 +72,10 @@ public class BibliotecaService {
             }
         }
         return myAvaiableBooks;
+    }
+
+    public List<Movie> listMoves(){
+        return  myAllMovies;
     }
 
     public boolean checkoutBooks(String bookName) {

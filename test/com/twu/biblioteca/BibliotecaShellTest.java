@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.RouterState;
+import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.router.BibliotecaRouter;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.service.BibliotecaService;
@@ -248,5 +249,16 @@ public class BibliotecaShellTest {
         RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(),getMainMenu());
+    }
+
+    @Test
+    public void should_dispaly_login_and_waiting_for_user_input_when_main_menu_user_select_checkout_books_and_current_user_not_login_if_continue_execution() throws NoSuchProviderException {
+        User userLogin = new User(false);
+        bibliotecaService.setUser(userLogin);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
+        router.getRouterMessage("2");
+        RouterMessage message = router.getRouterMessage(null);
+
+        assertEquals(message.getUserInput(),"please input your message with this format (library number,password)");
     }
 }

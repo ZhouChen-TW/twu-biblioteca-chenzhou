@@ -9,6 +9,9 @@ public class User {
         this.libraryNumber = libraryNumber;
         this.password = password;
     }
+    public User(boolean loginState){
+        this.loginState = loginState;
+    }
 
     public String getLibraryNumber() {
         return libraryNumber;
