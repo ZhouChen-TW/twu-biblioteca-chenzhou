@@ -51,6 +51,8 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists(){
+        User user = new User("100-0001","000000",true);
+        bibliotecaService.setUser(user);
         assertTrue(bibliotecaService.checkoutBooks("math"));
     }
 
@@ -61,6 +63,8 @@ public class BibliotecaServiceTest {
 
     @Test
     public void Should_display_books_that_are_not_checked_out_when_calling_listBooks(){
+        User user = new User(true);
+        bibliotecaService.setUser(user);
         bibliotecaService.checkoutBooks("math");
         List<Book> books = bibliotecaService.listBooks();
         assertEquals("chinese",books.get(0).getName());
@@ -73,6 +77,8 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_return_true_when_call_returnBook_if_the_book_has_been_checked_out_and_the_book_exists(){
+        User user = new User("100-0001","000000",true);
+        bibliotecaService.setUser(user);
         bibliotecaService.checkoutBooks("math");
         assertTrue(bibliotecaService.returnBooks("math"));
     }
@@ -85,6 +91,8 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_display_books_that_are_return_when_calling_list_books(){
+        User user = new User("100-0001","000000",true);
+        bibliotecaService.setUser(user);
         bibliotecaService.checkoutBooks("math");
         List<Book> books = bibliotecaService.listBooks();
         assertEquals("chinese",books.get(0).getName());
@@ -128,6 +136,8 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_return_true_when_calling_chekout_movies_if_the_movie_exist(){
+        User user = new User(true);
+        bibliotecaService.setUser(user);
         assertTrue(bibliotecaService.checkoutMovies("name0"));
     }
 
@@ -138,7 +148,8 @@ public class BibliotecaServiceTest {
 
     @Test
     public void should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password(){
-
+        User user = new User(false);
+        bibliotecaService.setUser(user);
         assertTrue(bibliotecaService.checkoutLogin("100-0001,000000"));
     }
 
@@ -155,10 +166,18 @@ public class BibliotecaServiceTest {
     @Test
     public void should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user(){
         User user = new User("100-0001","000000",true);
-        List<Book> books = bibliotecaService.listBooks();
-        bibliotecaService.checkoutBooks("math");
-        books.get(0).setUserLibraryNumber("100-0001");
         bibliotecaService.setUser(user);
+        bibliotecaService.checkoutBooks("math");
+
         assertTrue(bibliotecaService.returnBooks("math"));
+    }
+
+    @Test
+    public void should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user(){
+        User user = new User("100-0001","000000",true);
+        List<Book> books = bibliotecaService.listBooks();
+        books.get(0).setUserLibraryNumber("100-0000");
+        bibliotecaService.setUser(user);
+        assertFalse(bibliotecaService.returnBooks("math"));
     }
 }

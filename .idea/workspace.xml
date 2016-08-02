@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df8b113a-8635-4a64-a1ee-a4fd5c059436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/model/Book.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/model/Book.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/model/User.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/model/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/CheckoutBooksActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/CheckoutBooksActionHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +27,8 @@
       <file leaf-file-name="BibliotecaServiceTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="155" column="123" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="123" />
+            <state relative-caret-position="483">
+              <caret line="177" column="57" selection-start-line="177" selection-start-column="57" selection-end-line="177" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -43,8 +39,8 @@
       <file leaf-file-name="BibliotecaService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-56">
-              <caret line="101" column="76" selection-start-line="101" selection-start-column="76" selection-end-line="101" selection-end-column="76" />
+            <state relative-caret-position="189">
+              <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#352#358#0" expanded="true" />
@@ -158,8 +154,8 @@
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/model/Book.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/CheckoutBooksActionHandler.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/model/User.java" />
-        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java" />
         <option value="$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java" />
+        <option value="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java" />
       </list>
     </option>
   </component>
@@ -379,59 +375,7 @@
       <recent name="com.twu.biblioteca.shell" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BibliotecaServiceTest">
-    <configuration default="false" name="BibliotecaShellTest.should_waiting_for_user_input_when_user_select_checkout_movies_and_current_status_is_main_menu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaShellTest" />
-      <option name="METHOD_NAME" value="should_waiting_for_user_input_when_user_select_checkout_movies_and_current_status_is_main_menu" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="BibliotecaShellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaShellTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.BibliotecaServiceTest.should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user">
     <configuration default="false" name="BibliotecaServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -446,6 +390,58 @@
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaServiceTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaServiceTest.should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaServiceTest" />
+      <option name="METHOD_NAME" value="should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaServiceTest.Should_display_books_that_are_not_checked_out_when_calling_listBooks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaServiceTest" />
+      <option name="METHOD_NAME" value="Should_display_books_that_are_not_checked_out_when_calling_listBooks" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -484,7 +480,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="BibliotecaServiceTest.should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="BibliotecaServiceTest.should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.twu.biblioteca.*" />
@@ -496,7 +492,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaServiceTest" />
-      <option name="METHOD_NAME" value="should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password" />
+      <option name="METHOD_NAME" value="should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -761,19 +757,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_waiting_for_user_input_when_user_select_checkout_movies_and_current_status_is_main_menu" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.Should_display_books_that_are_not_checked_out_when_calling_listBooks" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_waiting_for_user_input_when_user_select_checkout_movies_and_current_status_is_main_menu" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.Should_display_books_that_are_not_checked_out_when_calling_listBooks" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaServiceTest.should_return_true_when_call_checkoutBook_if_the_book_has_not_been_checked_out_and_the_book_exists" />
       </list>
     </recent_temporary>
   </component>
@@ -791,34 +787,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 20h 52m 06s.xml">
+    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 21h 09m 01s.xml">
       <configuration name="BibliotecaServiceTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 20h 52m 15s.xml">
-      <configuration name="BibliotecaServiceTest" configurationId="JUnit" />
+    <history-entry file="BibliotecaServiceTest_should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user - 2016.08.02 at 21h 10m 52s.xml">
+      <configuration name="BibliotecaServiceTest.should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 20h 52m 27s.xml">
-      <configuration name="BibliotecaServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 20h 53m 58s.xml">
-      <configuration name="BibliotecaServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 20h 54m 42s.xml">
-      <configuration name="BibliotecaServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password - 2016.08.02 at 20h 53m 42s.xml">
-      <configuration name="BibliotecaServiceTest.should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 20h 49m 43s.xml">
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 06m 38s.xml">
       <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 20h 49m 58s.xml">
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 06m 40s.xml">
       <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 20h 51m 22s.xml">
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 07m 32s.xml">
       <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 20h 51m 45s.xml">
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 08m 11s.xml">
+      <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 08m 18s.xml">
+      <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 08m 37s.xml">
+      <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 09m 53s.xml">
+      <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BibliotecaServiceTest_should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user - 2016.08.02 at 21h 10m 24s.xml">
       <configuration name="BibliotecaServiceTest.should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -877,7 +873,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="39" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1103,8 +1099,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/twu/biblioteca/service/BibliotecaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-56">
-          <caret line="101" column="76" selection-start-line="101" selection-start-column="76" selection-end-line="101" selection-end-column="76" />
+        <state relative-caret-position="189">
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="32" selection-end-line="88" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#352#358#0" expanded="true" />
@@ -1116,8 +1112,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="155" column="123" selection-start-line="155" selection-start-column="16" selection-end-line="155" selection-end-column="123" />
+        <state relative-caret-position="483">
+          <caret line="177" column="57" selection-start-line="177" selection-start-column="57" selection-end-line="177" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

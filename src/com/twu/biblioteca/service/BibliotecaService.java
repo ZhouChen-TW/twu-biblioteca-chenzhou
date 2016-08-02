@@ -79,12 +79,13 @@ public class BibliotecaService {
     }
 
     public boolean checkoutBooks(String bookName) {
-        if(bookName == null || bookName.isEmpty()){
+        if(bookName == null || bookName.isEmpty() || getUser() == null){
             return false;
         }
         for (Book book : getMyAllBooks()) {
             if (!book.isCheckedOut() && bookName.equals(book.getName())){
                     book.setCheckedOut(true);
+                    book.setUserLibraryNumber(getUser().getLibraryNumber());
                     return true;
             }
         }
@@ -92,15 +93,12 @@ public class BibliotecaService {
     }
 
     public boolean returnBooks(String bookName) {
-        if(bookName == null || bookName.isEmpty()){
+        if(bookName == null || bookName.isEmpty()|| getUser() == null){
             return false;
         }
         for (Book book : getMyAllBooks()) {
-            if (bookName.equals(book.getName()) && book.isCheckedOut()) {
+            if (bookName.equals(book.getName()) && book.isCheckedOut() && getUser().getLibraryNumber().equals(book.getUserLibraryNumber())) {
                 book.setCheckedOut(false);
-                if(getUser() != null){
-                    book.setUserLibraryNumber(getUser().getLibraryNumber());
-                }
                 return true;
             }
         }
@@ -109,7 +107,7 @@ public class BibliotecaService {
     }
 
     public boolean checkoutMovies(String movieName) {
-        if (movieName == null || movieName.isEmpty()){
+        if (movieName == null || movieName.isEmpty() || getUser() == null){
             return false;
         }
         for (Movie movie : getMyAllMovies()){
@@ -121,7 +119,7 @@ public class BibliotecaService {
     }
 
     public boolean checkoutLogin(String userMessage) {
-        if (userMessage == null || userMessage.isEmpty() || !userMessage.contains(",")){
+        if (userMessage == null || userMessage.isEmpty() || !userMessage.contains(",") || getUser() == null){
             return false;
         }
         String libraryNumber = userMessage.split(",")[0].trim();
@@ -132,9 +130,7 @@ public class BibliotecaService {
         if(matcher.find()){
             for (User user : getMyAllUsers()){
                 if (libraryNumber.equals(user.getLibraryNumber()) && password.equals(user.getPassword())){
-                    if(getUser() != null){
-                        getUser().setLoginState(true);
-                    }
+                    getUser().setLoginState(true);
                     return true;
                 }
             }
