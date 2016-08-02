@@ -145,4 +145,10 @@ public class BibliotecaServiceTest {
     public void should_return_false_when_calling_chekout_movies_if_the_movie_does_not_exist(){
         assertFalse(bibliotecaService.checkoutMovies("invalid name"));
     }
+
+    @Test
+    public void should_return_true_when_calling_checkout_login_if_user_input_valid_library_number_and_password(){
+
+        assertTrue(bibliotecaService.checkoutLogin("100-0001,000000"));
+    }
 }

@@ -83,6 +83,7 @@ public class MainMenuActionHandler implements IActionHandler {
                 "****3.       Return Books                ****\n" +
                 "****4.       List Movies                 ****\n" +
                 "****5.       CheckOut Movies             ****\n" +
+                "****6.       Login                       ****\n" +
                 "****0.       Quit                        ****\n" +
                 "*********************************************\n" +
                 "please input what your choose:\n";

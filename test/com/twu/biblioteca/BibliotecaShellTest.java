@@ -31,6 +31,7 @@ public class BibliotecaShellTest {
                 "****3.       Return Books                ****\n" +
                 "****4.       List Movies                 ****\n" +
                 "****5.       CheckOut Movies             ****\n" +
+                "****6.       Login                       ****\n" +
                 "****0.       Quit                        ****\n" +
                 "*********************************************\n" +
                 "please input what your choose:\n";
@@ -233,7 +234,7 @@ public class BibliotecaShellTest {
 
     @Test
     public void given_user_input_in_checkout_movies_state_when_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
-            BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutMovies,bibliotecaService);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutMovies,bibliotecaService);
         router.getRouterMessage("5");
         RouterMessage message = router.getRouterMessage(null);
 
