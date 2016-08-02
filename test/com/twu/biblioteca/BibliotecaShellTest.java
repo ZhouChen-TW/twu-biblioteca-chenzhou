@@ -91,6 +91,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void should_waiting_for_user_input_when_user_select_checkout_books_and_current_status_is_main_menu() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
         RouterMessage message = router.getRouterMessage("2");
 
@@ -99,6 +101,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void given_a_book_list_containing_checked_out_book_When_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_except_for_those_checked_out_ones() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
         bibliotecaService.checkoutBooks("math");
 
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
@@ -148,6 +152,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void should_waiting_for_user_input_when_user_select_return_books_and_current_status_is_main_menu() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
         RouterMessage message = router.getRouterMessage("3");
 
@@ -227,6 +233,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void should_waiting_for_user_input_when_user_select_checkout_movies_and_current_status_is_main_menu() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
         RouterMessage message = router.getRouterMessage("5");
 

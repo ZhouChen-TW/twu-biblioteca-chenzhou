@@ -98,6 +98,9 @@ public class BibliotecaService {
         for (Book book : getMyAllBooks()) {
             if (bookName.equals(book.getName()) && book.isCheckedOut()) {
                 book.setCheckedOut(false);
+                if(getUser() != null){
+                    book.setUserLibraryNumber(getUser().getLibraryNumber());
+                }
                 return true;
             }
         }
@@ -129,6 +132,9 @@ public class BibliotecaService {
         if(matcher.find()){
             for (User user : getMyAllUsers()){
                 if (libraryNumber.equals(user.getLibraryNumber()) && password.equals(user.getPassword())){
+                    if(getUser() != null){
+                        getUser().setLoginState(true);
+                    }
                     return true;
                 }
             }

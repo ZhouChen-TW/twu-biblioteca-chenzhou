@@ -2,13 +2,11 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.service.BibliotecaService;
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -18,18 +16,10 @@ import static org.junit.Assert.assertTrue;
 
 public class BibliotecaServiceTest {
     private BibliotecaService bibliotecaService;
-    private ByteArrayOutputStream outContent ;
 
     @Before
     public void setUp() throws Exception {
         bibliotecaService = new BibliotecaService();
-        outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void setDown() throws Exception{
-        System.setOut(new PrintStream(outContent));
     }
 
     @Test
@@ -160,5 +150,15 @@ public class BibliotecaServiceTest {
     @Test
     public void should_return_false_when_calling_checkout_login_if_user_input_valid_format_library_number_but_invalid_password(){
         assertFalse(bibliotecaService.checkoutLogin("100-0001,000001"));
+    }
+
+    @Test
+    public void should_return_true_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_that_user(){
+        User user = new User("100-0001","000000",true);
+        List<Book> books = bibliotecaService.listBooks();
+        bibliotecaService.checkoutBooks("math");
+        books.get(0).setUserLibraryNumber("100-0001");
+        bibliotecaService.setUser(user);
+        assertTrue(bibliotecaService.returnBooks("math"));
     }
 }

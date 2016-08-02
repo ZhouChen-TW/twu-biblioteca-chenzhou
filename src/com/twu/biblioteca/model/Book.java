@@ -4,6 +4,7 @@ public class Book {
     private String name;
     private String author;
     private String publishedYear;
+    private String userLibraryNumber;
     private boolean checkedOut;
 
     public Book(String name, String author,String publishedYear) {
@@ -31,5 +32,13 @@ public class Book {
 
     public void setCheckedOut(boolean checkedOut) {
         this.checkedOut = checkedOut;
+    }
+
+    public String getUserLibraryNumber() {
+        return userLibraryNumber;
+    }
+
+    public void setUserLibraryNumber(String userLibraryNumber) {
+        this.userLibraryNumber = userLibraryNumber;
     }
 }

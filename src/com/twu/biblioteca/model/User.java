@@ -5,11 +5,18 @@ public class User {
     private String password;
     private boolean loginState;
 
+    public User(boolean loginState){
+        this.loginState = loginState;
+    }
+
     public User(String libraryNumber, String password){
         this.libraryNumber = libraryNumber;
         this.password = password;
     }
-    public User(boolean loginState){
+
+    public User(String libraryNumber, String password, boolean loginState){
+        this.libraryNumber = libraryNumber;
+        this.password = password;
         this.loginState = loginState;
     }
 
