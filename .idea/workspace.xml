@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df8b113a-8635-4a64-a1ee-a4fd5c059436" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/LoginActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/LoginActionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/MainMenuActionHandler.java" afterPath="$PROJECT_DIR$/src/com/twu/biblioteca/router/instance/MainMenuActionHandler.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java" afterPath="$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java" />
     </list>
     <ignored path="biblioteca.iws" />
@@ -45,8 +43,8 @@
       <file leaf-file-name="BibliotecaShellTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="327" column="41" selection-start-line="327" selection-start-column="41" selection-end-line="327" selection-end-column="41" />
+            <state relative-caret-position="379">
+              <caret line="328" column="45" selection-start-line="328" selection-start-column="45" selection-end-line="328" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -387,7 +385,7 @@
       <recent name="com.twu.biblioteca.shell" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BibliotecaShellTest">
+  <component name="RunManager" selected="JUnit.BibliotecaShellTest.should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution">
     <configuration default="false" name="BibliotecaShellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -402,32 +400,6 @@
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaShellTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="BibliotecaShellTest.should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.twu.biblioteca.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="biblioteca" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
-      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaShellTest" />
-      <option name="METHOD_NAME" value="should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -505,6 +477,32 @@
       <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
       <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaShellTest" />
       <option name="METHOD_NAME" value="should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="BibliotecaShellTest.should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.twu.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="biblioteca" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.twu.biblioteca" />
+      <option name="MAIN_CLASS_NAME" value="com.twu.biblioteca.BibliotecaShellTest" />
+      <option name="METHOD_NAME" value="should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -770,18 +768,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.given_a_book_list_containing_return_books_when_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_contains_those_returned_ones" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_successful_message_when_user_return_a_valid_book_and_continue_execution" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.given_a_book_list_containing_return_books_when_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_contains_those_returned_ones" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_successful_message_when_user_return_a_valid_book_and_continue_execution" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_successful_message_when_user_return_a_valid_book_and_continue_execution" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.given_a_book_list_containing_return_books_when_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_contains_those_returned_ones" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.should_display_successful_message_when_user_return_a_valid_book_and_continue_execution" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.BibliotecaShellTest.given_a_book_list_containing_return_books_when_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_contains_those_returned_ones" />
       </list>
     </recent_temporary>
   </component>
@@ -799,12 +797,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="BibliotecaServiceTest - 2016.08.02 at 21h 30m 28s.xml">
-      <configuration name="BibliotecaServiceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="BibliotecaShellTest - 2016.08.02 at 21h 31m 01s.xml">
-      <configuration name="BibliotecaShellTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="BibliotecaShellTest - 2016.08.02 at 21h 34m 04s.xml">
       <configuration name="BibliotecaShellTest" configurationId="JUnit" />
     </history-entry>
@@ -819,6 +811,12 @@
     </history-entry>
     <history-entry file="BibliotecaShellTest_should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution - 2016.08.02 at 21h 41m 19s.xml">
       <configuration name="BibliotecaShellTest.should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BibliotecaShellTest_should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution - 2016.08.02 at 21h 43m 00s.xml">
+      <configuration name="BibliotecaShellTest.should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="BibliotecaShellTest_should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution - 2016.08.02 at 21h 43m 12s.xml">
+      <configuration name="BibliotecaShellTest.should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution" configurationId="JUnit" />
     </history-entry>
     <history-entry file="BibliotecaShellTest_should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution - 2016.08.02 at 21h 32m 03s.xml">
       <configuration name="BibliotecaShellTest.should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution" configurationId="JUnit" />
@@ -1136,8 +1134,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/twu/biblioteca/BibliotecaShellTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="327" column="41" selection-start-line="327" selection-start-column="41" selection-end-line="327" selection-end-column="41" />
+        <state relative-caret-position="379">
+          <caret line="328" column="45" selection-start-line="328" selection-start-column="45" selection-end-line="328" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

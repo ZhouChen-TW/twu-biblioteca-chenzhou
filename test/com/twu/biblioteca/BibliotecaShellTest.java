@@ -333,4 +333,15 @@ public class BibliotecaShellTest {
 
         assertEquals(message.getUserInput(),getMainMenuNew());
     }
+
+    @Test
+    public void should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution() throws NoSuchProviderException {
+        User userLogin = new User(false);
+        bibliotecaService.setUser(userLogin);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Login,bibliotecaService);
+        router.getRouterMessage("100-0001,000001");
+        RouterMessage message = router.getRouterMessage(null);
+
+        assertEquals(message.getUserInput(),getMainMenu());
+    }
 }
