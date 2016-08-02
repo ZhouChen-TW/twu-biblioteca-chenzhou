@@ -72,6 +72,12 @@ public class MainMenuActionHandler implements IActionHandler {
             myContext.setNestState(RouterState.Login);
             return new RouterMessage("please input your message with this format (library number,password)", false, true);
         }
+        if (userInput.equals("7")) {
+            if (user.isLoginState()){
+                return new RouterMessage(formatUser(user),false,false);
+            }
+            return new RouterMessage("", false, true);
+        }
         return new RouterMessage("Select a valid option!\n\n", false, false);
     }
 
@@ -98,6 +104,11 @@ public class MainMenuActionHandler implements IActionHandler {
             st.append("****    ").append(movie.getName()).append("  ").append(movie.getYear()).append("  ").append(movie.getDirector()).append("  ").append(movie.getMovieRating()).append("\n");
         }
         return st.toString();
+    }
+
+    private String formatUser(User user){
+        StringBuilder st = new StringBuilder();
+        return st.append("****    ").append("name: ").append(user.getName()).append("  email address: ").append(user.getEmail()).append("  phone number: ").append(user.getPhone()).toString();
     }
 
     private static String getMainMenu(){

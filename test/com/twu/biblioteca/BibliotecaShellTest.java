@@ -344,4 +344,15 @@ public class BibliotecaShellTest {
 
         assertEquals(message.getUserInput(),getMainMenu());
     }
+
+    @Test
+    public void should_display_current_user_information_when_user_select_user_information_when_current_state_is_main_menu() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
+        bibliotecaService.checkoutLogin("100-0001,000000");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
+        RouterMessage message = router.getRouterMessage("7");
+
+        assertEquals(message.getUserInput(),"****    name: name0  email address: email0  phone number: phone0");
+    }
 }
