@@ -19,7 +19,7 @@ public class BibliotecaRouter {
         this.myContext = new RouterContext(initialState);
     }
 
-    public routerMessage getRouterMessage(String userInput) throws NoSuchProviderException {
+    public RouterMessage getRouterMessage(String userInput) throws NoSuchProviderException {
         return getActionHandler().handle(userInput);
     }
 
@@ -30,7 +30,7 @@ public class BibliotecaRouter {
         if (myContext.getCurrentState() == RouterState.MainMenu) {
             return new MainMenuActionHandler(myContext, myService);
         }
-        if(myContext.getCurrentState() == RouterState.Checkout) {
+        if(myContext.getCurrentState() == RouterState.CheckoutBooks) {
             return new CheckoutActionHandler(myContext, myService);
         }
         if (myContext.getCurrentState() == RouterState.Return){

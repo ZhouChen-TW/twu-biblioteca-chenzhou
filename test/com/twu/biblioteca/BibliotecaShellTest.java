@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.router.BibliotecaRouter;
-import com.twu.biblioteca.router.routerMessage;
+import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.service.BibliotecaService;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +30,7 @@ public class BibliotecaShellTest {
                 "****2.       CheckOut Books              ****\n" +
                 "****3.       Return Books                ****\n" +
                 "****4.       List Movies                 ****\n" +
+                "****5.       CheckOut Movies             ****\n" +
                 "****0.       Quit                        ****\n" +
                 "*********************************************\n" +
                 "please input what your choose:\n";
@@ -38,21 +39,21 @@ public class BibliotecaShellTest {
     @Test
     public void should_display_welcome_message_when_current_state_is_initializing() throws IOException, NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Initializing, bibliotecaService);
-        routerMessage message = router.getRouterMessage("");
+        RouterMessage message = router.getRouterMessage("");
         assertTrue(message.getUserInput().contains("Welcome To Biblioteca Library!"));
     }
 
     @Test
     public void should_display_main_menu_when_current_state_is_main_menu() throws IOException, NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
         assertTrue(message.getUserInput().contains(getMainMenu()));
     }
 
     @Test
     public void should_display_book_list_when_current_state_is_main_menu_and_user_input_is_list_books() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("1");
+        RouterMessage message = router.getRouterMessage("1");
 
         assertEquals(message.getUserInput(),"****          All Book Detials           ****\n" +
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
@@ -63,7 +64,7 @@ public class BibliotecaShellTest {
     @Test
     public void should_display_an_invalid_message_when_user_input_is_not_list_books_and_current_state_is_main_menu() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("invalid input");
+        RouterMessage message = router.getRouterMessage("invalid input");
 
         assertEquals(message.getUserInput(),"Select a valid option!\n\n");
     }
@@ -72,7 +73,7 @@ public class BibliotecaShellTest {
     public void should_display_main_menu_when_user_input_is_not_list_books_and_current_state_is_main_menu_and_continue_execution() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
         router.getRouterMessage("invalid input");
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(), getMainMenu());
     }
@@ -80,7 +81,7 @@ public class BibliotecaShellTest {
     @Test
     public void should_quit_when_user_input_is_quit_and_current_state_is_main_menu() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("0");
+        RouterMessage message = router.getRouterMessage("0");
 
         assertTrue(message.isExit());
         assertFalse(message.isWaitForInput());
@@ -89,7 +90,7 @@ public class BibliotecaShellTest {
     @Test
     public void should_waiting_for_user_input_when_user_select_checkout_books_and_current_status_is_main_menu() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("2");
+        RouterMessage message = router.getRouterMessage("2");
 
         assertTrue(message.isWaitForInput());
     }
@@ -99,7 +100,7 @@ public class BibliotecaShellTest {
         bibliotecaService.checkoutBooks("math");
 
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("1");
+        RouterMessage message = router.getRouterMessage("1");
 
         assertTrue(message.getUserInput().contains("****          All Book Detials           ****\n" +
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
@@ -109,17 +110,17 @@ public class BibliotecaShellTest {
 
     @Test
     public void should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution() throws NoSuchProviderException {
-        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, bibliotecaService);
-        routerMessage message = router.getRouterMessage("math");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutBooks, bibliotecaService);
+        RouterMessage message = router.getRouterMessage("math");
 
         assertTrue(message.getUserInput().contains("Thank you! Enjoy the book!\n\n"));
     }
 
     @Test
     public void given_current_state_is_checkout_when_user_input_valid_check_out_book_name_and_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
-        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, bibliotecaService);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutBooks, bibliotecaService);
         router.getRouterMessage("math");
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(),getMainMenu());
     }
@@ -128,17 +129,17 @@ public class BibliotecaShellTest {
     public void given_current_state_is_checkout_should_display_unsuccessful_message_when_user_select_a_checked_book_or_the_book_does_not_exist() throws NoSuchProviderException {
         bibliotecaService.checkoutBooks("math");
 
-        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, bibliotecaService);
-        routerMessage message = router.getRouterMessage("invalid input");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutBooks, bibliotecaService);
+        RouterMessage message = router.getRouterMessage("invalid input");
 
         assertTrue(message.getUserInput().contains("That book is not available.\n\n"));
     }
 
     @Test
     public void given_current_state_is_checkout_when_user_input_an_invalid_book_and_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
-        BibliotecaRouter router = new BibliotecaRouter(RouterState.Checkout, bibliotecaService);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutBooks, bibliotecaService);
         router.getRouterMessage("invalid input");
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
 
         assertTrue(message.getUserInput().contains(getMainMenu()));
     }
@@ -146,7 +147,7 @@ public class BibliotecaShellTest {
     @Test
     public void should_waiting_for_user_input_when_user_select_return_books_and_current_status_is_main_menu() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("3");
+        RouterMessage message = router.getRouterMessage("3");
 
         assertTrue(message.isWaitForInput());
     }
@@ -157,7 +158,7 @@ public class BibliotecaShellTest {
         bibliotecaService.checkoutBooks("english");
         bibliotecaService.returnBooks("english");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("1");
+        RouterMessage message = router.getRouterMessage("1");
 
         assertEquals(message.getUserInput(),"****          All Book Detials           ****\n" +
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
@@ -169,7 +170,7 @@ public class BibliotecaShellTest {
     public void should_display_successful_message_when_user_return_a_valid_book_and_continue_execution() throws NoSuchProviderException {
         bibliotecaService.checkoutBooks("math");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
-        routerMessage message = router.getRouterMessage("math");
+        RouterMessage message = router.getRouterMessage("math");
 
         assertTrue(message.getUserInput().contains("Thank you for returning the book.\n\n"));
     }
@@ -179,7 +180,7 @@ public class BibliotecaShellTest {
         bibliotecaService.checkoutBooks("math");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
         router.getRouterMessage("math");
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
 
         assertTrue(message.getUserInput().contains(getMainMenu()));
     }
@@ -187,7 +188,7 @@ public class BibliotecaShellTest {
     @Test
     public void given_current_state_is_return_book_should_display_unsuccessful_message_when_user_return_an_unchecked_book_or_the_book_does_not_exist() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
-        routerMessage message = router.getRouterMessage("invaild names");
+        RouterMessage message = router.getRouterMessage("invaild names");
 
         assertTrue(message.getUserInput().contains("That is not a valid book to return.\n\n"));
     }
@@ -197,7 +198,7 @@ public class BibliotecaShellTest {
         bibliotecaService.checkoutBooks("math");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
         router.getRouterMessage("invaild name");
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
 
         assertTrue(message.getUserInput().contains(getMainMenu()));
     }
@@ -205,7 +206,7 @@ public class BibliotecaShellTest {
     @Test
     public void should_display_all_available_movies_when_user_select_list_movies_and_current_state_is_main_menu() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
-        routerMessage message = router.getRouterMessage("4");
+        RouterMessage message = router.getRouterMessage("4");
 
         assertEquals(message.getUserInput(),"****          All Movie Detials          ****\n********" +
                 "*************************************\n****    Name  Year  Director  Rating     ****\n" +
@@ -217,8 +218,16 @@ public class BibliotecaShellTest {
     public void given_user_input_list_movies_in_main_menu_state_when_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
         router.getRouterMessage("4");
-        routerMessage message = router.getRouterMessage(null);
+        RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(),getMainMenu());
+    }
+
+    @Test
+    public void should_waiting_for_user_input_when_user_select_checkout_movies_and_current_status_is_main_menu() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
+        RouterMessage message = router.getRouterMessage("5");
+
+        assertTrue(message.isWaitForInput());
     }
 }

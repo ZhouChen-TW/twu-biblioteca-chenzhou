@@ -4,7 +4,7 @@ import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.router.RouterContext;
-import com.twu.biblioteca.router.routerMessage;
+import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.router.IActionHandler;
 import com.twu.biblioteca.service.BibliotecaService;
 
@@ -20,30 +20,34 @@ public class MainMenuActionHandler implements IActionHandler {
     }
 
     @Override
-    public routerMessage handle(String userInput) {
+    public RouterMessage handle(String userInput) {
         if (userInput == null) {
-            return new routerMessage(getMainMenu(), false, true);
+            return new RouterMessage(getMainMenu(), false, true);
         }
         if (userInput.equals("0")) {
-            return new routerMessage("", true, false);
+            return new RouterMessage("", true, false);
         }
         if (userInput.equals("1")) {
             List<Book> myAllBooks = myService.listBooks();
-            return new routerMessage(formatListBooks(myAllBooks), false, false);
+            return new RouterMessage(formatListBooks(myAllBooks), false, false);
         }
         if (userInput.equals("2")) {
-            myContext.setNestState(RouterState.Checkout);
-            return new routerMessage("", false, true);
+            myContext.setNestState(RouterState.CheckoutBooks);
+            return new RouterMessage("", false, true);
         }
         if (userInput.equals("3")) {
             myContext.setNestState(RouterState.Return);
-            return new routerMessage("", false, true);
+            return new RouterMessage("", false, true);
         }
         if (userInput.equals("4")) {
             List<Movie> myAllMovies = myService.listMoves();
-            return new routerMessage(formatListMovies(myAllMovies), false,false);
+            return new RouterMessage(formatListMovies(myAllMovies), false,false);
         }
-        return new routerMessage("Select a valid option!\n\n", false, false);
+        if (userInput.equals("5")) {
+            myContext.setNestState(RouterState.CheckoutMovies);
+            return new RouterMessage("", false, true);
+        }
+        return new RouterMessage("Select a valid option!\n\n", false, false);
     }
 
     private String formatListBooks(List<Book> myAllBooks) {
@@ -78,6 +82,7 @@ public class MainMenuActionHandler implements IActionHandler {
                 "****2.       CheckOut Books              ****\n" +
                 "****3.       Return Books                ****\n" +
                 "****4.       List Movies                 ****\n" +
+                "****5.       CheckOut Movies             ****\n" +
                 "****0.       Quit                        ****\n" +
                 "*********************************************\n" +
                 "please input what your choose:\n";

@@ -2,7 +2,7 @@ package com.twu.biblioteca.shell;
 
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.router.BibliotecaRouter;
-import com.twu.biblioteca.router.routerMessage;
+import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.service.BibliotecaService;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ public class BibliotecaShell {
 
         String userInput = null;
         while (true) {
-            routerMessage message = router.getRouterMessage(userInput);
+            RouterMessage message = router.getRouterMessage(userInput);
             myOutputStream.write(message.getUserInput().getBytes());
             if (message.isExit()) {
                 break;
