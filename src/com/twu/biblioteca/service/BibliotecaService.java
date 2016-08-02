@@ -23,9 +23,9 @@ public class BibliotecaService {
     }
 
     private void loadAllUserList() {
-        myAllUsers.add(new User("100-0001","000000"));
-        myAllUsers.add(new User("100-0002","000001"));
-        myAllUsers.add(new User("100-0003","000002"));
+        myAllUsers.add(new User("100-0001","000000","name0","email0","phone0"));
+        myAllUsers.add(new User("100-0002","000001","name1","email1","phone1"));
+        myAllUsers.add(new User("100-0003","000002","name2","email2","phone2"));
     }
 
     private void loadAllMovieList() {
@@ -130,7 +130,8 @@ public class BibliotecaService {
         if(matcher.find()){
             for (User user : getMyAllUsers()){
                 if (libraryNumber.equals(user.getLibraryNumber()) && password.equals(user.getPassword())){
-                    getUser().setLoginState(true);
+                    user.setLoginState(true);
+                    setUser(user);
                     return true;
                 }
             }

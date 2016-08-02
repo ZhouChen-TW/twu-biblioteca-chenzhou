@@ -175,9 +175,19 @@ public class BibliotecaServiceTest {
     @Test
     public void should_return_false_when_calling_retrun_books_if_user_input_valid_book_and_the_book_borrow_user_is_not_that_user(){
         User user = new User("100-0001","000000",true);
+        bibliotecaService.setUser(user);
         List<Book> books = bibliotecaService.listBooks();
         books.get(0).setUserLibraryNumber("100-0000");
-        bibliotecaService.setUser(user);
         assertFalse(bibliotecaService.returnBooks("math"));
+    }
+
+    @Test
+    public void should_dispaly_user_name_email_address_and_phone_number_when_user_has_login(){
+        User user = new User(false);
+        bibliotecaService.setUser(user);
+        bibliotecaService.checkoutLogin("100-0001,000000");
+        assertEquals(bibliotecaService.getUser().getName(),"name0");
+        assertEquals(bibliotecaService.getUser().getEmail(),"email0");
+        assertEquals(bibliotecaService.getUser().getPhone(),"phone0");
     }
 }
