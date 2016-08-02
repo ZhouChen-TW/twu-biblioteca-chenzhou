@@ -206,12 +206,14 @@ public class BibliotecaShellTest {
 
     @Test
     public void given_current_state_is_returnBook_when_user_input_a_valid_return_book_name_and_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
+        User userLogin = new User("100-0001","000000",true);
+        bibliotecaService.setUser(userLogin);
         bibliotecaService.checkoutBooks("math");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
         router.getRouterMessage("math");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertTrue(message.getUserInput().contains(getMainMenu()));
+        assertTrue(message.getUserInput().contains(getMainMenuNew()));
     }
 
     @Test
@@ -277,7 +279,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("100-0001,000000");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenu());
+        assertEquals(message.getUserInput(),getMainMenuNew());
     }
 
     @Test
@@ -324,18 +326,18 @@ public class BibliotecaShellTest {
     }
 
     @Test
-    public void should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution() throws NoSuchProviderException {
-        User userLogin = new User(false);
+    public void should_display_main_menu_contains_user_information_when_current_state_is_main_menu_and_user_login_success_and_contine_execution() throws NoSuchProviderException {
+        User userLogin = new User(true);
         bibliotecaService.setUser(userLogin);
-        BibliotecaRouter router = new BibliotecaRouter(RouterState.Login,bibliotecaService);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
         router.getRouterMessage("100-0001,000000");
-        RouterMessage message = router.getRouterMessage("new");
+        RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(),getMainMenuNew());
     }
 
     @Test
-    public void should_display_main_menu_not_contains_user_information_when_current_state_is_login_and_user_login_unsuccess_and_contine_execution() throws NoSuchProviderException {
+    public void should_display_main_menu_not_contains_user_information_when_current_state_is_main_menu_and_user_login_unsuccess_and_contine_execution() throws NoSuchProviderException {
         User userLogin = new User(false);
         bibliotecaService.setUser(userLogin);
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Login,bibliotecaService);
@@ -353,7 +355,7 @@ public class BibliotecaShellTest {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
         RouterMessage message = router.getRouterMessage("7");
 
-        assertEquals(message.getUserInput(),"****    name: name0  email address: email0  phone number: phone0");
+        assertEquals(message.getUserInput(),"****    name: name0  email address: email0  phone number: phone0\n");
     }
 
     @Test
@@ -363,7 +365,7 @@ public class BibliotecaShellTest {
         bibliotecaService.checkoutLogin("100-0001,000000");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
         router.getRouterMessage("7");
-        RouterMessage message = router.getRouterMessage("new");
+        RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(),getMainMenuNew());
     }

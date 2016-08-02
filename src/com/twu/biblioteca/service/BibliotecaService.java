@@ -20,6 +20,7 @@ public class BibliotecaService {
         loadAllBookList();
         loadAllMovieList();
         loadAllUserList();
+        user = new User(false);
     }
 
     private void loadAllUserList() {

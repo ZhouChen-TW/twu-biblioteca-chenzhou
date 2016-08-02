@@ -25,10 +25,10 @@ public class MainMenuActionHandler implements IActionHandler {
         User user = myService.getUser();
 
         if (userInput == null) {
+            if (user.isLoginState()){
+                return new RouterMessage(getMainMenuNew(), false, true);
+            }
             return new RouterMessage(getMainMenu(), false, true);
-        }
-        if (userInput.equals("new")){
-            return new RouterMessage(getMainMenuNew(), false, true);
         }
         if (userInput.equals("0")) {
             return new RouterMessage("", true, false);
@@ -43,7 +43,7 @@ public class MainMenuActionHandler implements IActionHandler {
                 return new RouterMessage("", false, true);
             }
             myContext.setNestState(RouterState.Login);
-            return new RouterMessage("", false, true);
+            return new RouterMessage("", false, false);
         }
         if (userInput.equals("3")) {
             if (user.isLoginState()){
@@ -51,7 +51,7 @@ public class MainMenuActionHandler implements IActionHandler {
                 return new RouterMessage("", false, true);
             }
             myContext.setNestState(RouterState.Login);
-            return new RouterMessage("", false, true);
+            return new RouterMessage("", false, false);
         }
         if (userInput.equals("4")) {
             List<Movie> myAllMovies = myService.listMoves();
@@ -63,7 +63,7 @@ public class MainMenuActionHandler implements IActionHandler {
                 return new RouterMessage("", false, true);
             }
             myContext.setNestState(RouterState.Login);
-            return new RouterMessage("", false, true);
+            return new RouterMessage("", false, false);
         }
         if (userInput.equals("6")) {
             if (user.isLoginState()){
@@ -76,7 +76,7 @@ public class MainMenuActionHandler implements IActionHandler {
             if (user.isLoginState()){
                 return new RouterMessage(formatUser(user),false,false);
             }
-            return new RouterMessage("", false, true);
+            return new RouterMessage("invaild", false, true);
         }
         return new RouterMessage("Select a valid option!\n\n", false, false);
     }
@@ -108,7 +108,8 @@ public class MainMenuActionHandler implements IActionHandler {
 
     private String formatUser(User user){
         StringBuilder st = new StringBuilder();
-        return st.append("****    ").append("name: ").append(user.getName()).append("  email address: ").append(user.getEmail()).append("  phone number: ").append(user.getPhone()).toString();
+        st.append("****    ").append("name: ").append(user.getName()).append("  email address: ").append(user.getEmail()).append("  phone number: ").append(user.getPhone()).append("\n");
+        return st.toString();
     }
 
     private static String getMainMenu(){
