@@ -19,10 +19,6 @@ public class BibliotecaService {
         return myAllBooks;
     }
 
-    public List<Movie> getMyAllMovies() {
-        return myAllMovies;
-    }
-
     private void loadAllBookList(){
         myAllBooks.add(new Book("math","yangliu","2013-10-10"));
         myAllBooks.add(new Book("chinese","huawu","2011-09-14"));

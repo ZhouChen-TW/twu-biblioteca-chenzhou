@@ -29,6 +29,7 @@ public class BibliotecaShellTest {
                 "****1.       List Books                  ****\n" +
                 "****2.       CheckOut Books              ****\n" +
                 "****3.       Return Books                ****\n" +
+                "****4.       List Movies                 ****\n" +
                 "****0.       Quit                        ****\n" +
                 "*********************************************\n" +
                 "please input what your choose:\n";
@@ -56,7 +57,7 @@ public class BibliotecaShellTest {
         assertEquals(message.getUserInput(),"****          All Book Detials           ****\n" +
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
                 "*********************************************\n****    math  yangliu  2013-10-10\n" +
-                "****    chinese  huawu  2011-09-14\n****    english  danhu  2015-05-10\n"+getMainMenu());
+                "****    chinese  huawu  2011-09-14\n****    english  danhu  2015-05-10\n");
     }
 
     @Test
@@ -161,7 +162,7 @@ public class BibliotecaShellTest {
         assertEquals(message.getUserInput(),"****          All Book Detials           ****\n" +
                 "*********************************************\n****    Name   PublishedYear  Author     ****\n" +
                 "*********************************************\n****    chinese  huawu  2011-09-14\n****    english " +
-                " danhu  2015-05-10\n"+getMainMenu());
+                " danhu  2015-05-10\n");
     }
 
     @Test
@@ -199,6 +200,17 @@ public class BibliotecaShellTest {
         routerMessage message = router.getRouterMessage(null);
 
         assertTrue(message.getUserInput().contains(getMainMenu()));
+    }
+
+    @Test
+    public void should_display_all_available_movies_when_user_select_list_movies_and_current_state_is_main_menu() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
+        routerMessage message = router.getRouterMessage("4");
+
+        assertEquals(message.getUserInput(),"****          All Movie Detials          ****\n********" +
+                "*************************************\n****    Name  Year  Director  Rating     ****\n" +
+                "*********************************************\n****    name0  1990  director0  unrated\n" +
+                "****    name1  1991  director1  1\n****    name2  1992  director2  2\n");
     }
 
 }
