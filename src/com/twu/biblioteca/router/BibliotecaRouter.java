@@ -36,6 +36,9 @@ public class BibliotecaRouter {
         if(myContext.getCurrentState() == RouterState.CheckoutMovies) {
             return new CheckoutMoviesActionHandler(myContext, myService);
         }
+        if(myContext.getCurrentState() == RouterState.Login) {
+            return new LoginActionHandler(myContext, myService);
+        }
         throw new NoSuchProviderException("Not supported error");
     }
 }

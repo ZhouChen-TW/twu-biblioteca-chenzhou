@@ -240,4 +240,13 @@ public class BibliotecaShellTest {
 
         assertEquals(message.getUserInput(),getMainMenu());
     }
+
+    @Test
+    public void should_display_main_menu_when_current_state_is_login_and_continue_execution() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Login,bibliotecaService);
+        router.getRouterMessage("100-0001,000000");
+        RouterMessage message = router.getRouterMessage(null);
+
+        assertEquals(message.getUserInput(),getMainMenu());
+    }
 }

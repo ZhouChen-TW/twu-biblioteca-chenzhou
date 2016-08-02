@@ -106,6 +106,9 @@ public class BibliotecaService {
     }
 
     public boolean checkoutMovies(String movieName) {
+        if (movieName == null || movieName.isEmpty()){
+            return false;
+        }
         for (Movie movie : getMyAllMovies()){
             if (movieName.equals(movie.getName())){
                 return true;
@@ -115,6 +118,9 @@ public class BibliotecaService {
     }
 
     public boolean checkoutLogin(String userMessage) {
+        if (userMessage == null || userMessage.isEmpty() || !userMessage.contains(",")){
+            return false;
+        }
         String libraryNumber = userMessage.split(",")[0].trim();
         String password = userMessage.split(",")[1].trim();
 

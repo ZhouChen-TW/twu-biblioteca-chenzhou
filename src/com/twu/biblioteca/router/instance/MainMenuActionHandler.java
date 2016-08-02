@@ -47,6 +47,10 @@ public class MainMenuActionHandler implements IActionHandler {
             myContext.setNestState(RouterState.CheckoutMovies);
             return new RouterMessage("", false, true);
         }
+        if (userInput.equals("6")) {
+            myContext.setNestState(RouterState.Login);
+            return new RouterMessage("please input your message with this format (library number,password)", false, true);
+        }
         return new RouterMessage("Select a valid option!\n\n", false, false);
     }
 
