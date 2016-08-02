@@ -38,7 +38,7 @@ public class MainMenuActionHandler implements IActionHandler {
             myContext.setNestState(RouterState.Return);
             return new routerMessage("", false, true);
         }
-        return new routerMessage("Select a valid option!\n\n", false, true);
+        return new routerMessage("Select a valid option!\n\n", false, false);
     }
 
     private String formatListBooks(List<Book> myAllBooks) {
