@@ -156,4 +156,9 @@ public class BibliotecaServiceTest {
     public void should_return_false_when_calling_checkout_login_if_user_input_invaild_format_library_number(){
         assertFalse(bibliotecaService.checkoutLogin("invalid ,000000"));
     }
+
+    @Test
+    public void should_return_false_when_calling_checkout_login_if_user_input_valid_format_library_number_but_invalid_password(){
+        assertFalse(bibliotecaService.checkoutLogin("100-0001,000001"));
+    }
 }
