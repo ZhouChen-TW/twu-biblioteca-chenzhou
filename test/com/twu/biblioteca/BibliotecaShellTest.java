@@ -38,6 +38,21 @@ public class BibliotecaShellTest {
                 "please input what your choose:\n";
     }
 
+    private static String getMainMenuNew(){
+        return "****         This is our Main Menu       ****\n" +
+                "*********************************************\n" +
+                "****1.       List Books                  ****\n" +
+                "****2.       CheckOut Books              ****\n" +
+                "****3.       Return Books                ****\n" +
+                "****4.       List Movies                 ****\n" +
+                "****5.       CheckOut Movies             ****\n" +
+                "****6.       Login                       ****\n" +
+                "****7.       User Information            ****\n" +
+                "****0.       Quit                        ****\n" +
+                "*********************************************\n" +
+                "please input what your choose:\n";
+    }
+
     @Test
     public void should_display_welcome_message_when_current_state_is_initializing() throws IOException, NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Initializing, bibliotecaService);
@@ -116,6 +131,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void should_display_successful_message_if_the_book_has_not_been_checked_out_and_the_book_exists_when_user_input_check_out_book_name_and_continue_execution() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
         BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutBooks, bibliotecaService);
         RouterMessage message = router.getRouterMessage("math");
 
@@ -162,6 +179,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void given_a_book_list_containing_return_books_when_user_select_list_books_when_current_state_is_main_menu_then_books_should_be_displayed_contains_those_returned_ones() throws NoSuchProviderException {
+        User userLogin = new User("100-0001","000000",true);
+        bibliotecaService.setUser(userLogin);
         bibliotecaService.checkoutBooks("math");
         bibliotecaService.checkoutBooks("english");
         bibliotecaService.returnBooks("english");
@@ -176,6 +195,8 @@ public class BibliotecaShellTest {
 
     @Test
     public void should_display_successful_message_when_user_return_a_valid_book_and_continue_execution() throws NoSuchProviderException {
+        User userLogin = new User("100-0001","000000",true);
+        bibliotecaService.setUser(userLogin);
         bibliotecaService.checkoutBooks("math");
         BibliotecaRouter router = new BibliotecaRouter(RouterState.Return, bibliotecaService);
         RouterMessage message = router.getRouterMessage("math");
@@ -300,5 +321,16 @@ public class BibliotecaShellTest {
         RouterMessage message = router.getRouterMessage(null);
 
         assertEquals(message.getUserInput(),"please input your message with this format (library number,password)");
+    }
+
+    @Test
+    public void should_display_main_menu_contains_user_information_when_current_state_is_login_and_user_login_success_and_contine_execution() throws NoSuchProviderException {
+        User userLogin = new User(false);
+        bibliotecaService.setUser(userLogin);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.Login,bibliotecaService);
+        router.getRouterMessage("100-0001,000000");
+        RouterMessage message = router.getRouterMessage("new");
+
+        assertEquals(message.getUserInput(),getMainMenuNew());
     }
 }

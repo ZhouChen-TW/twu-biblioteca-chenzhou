@@ -27,6 +27,9 @@ public class MainMenuActionHandler implements IActionHandler {
         if (userInput == null) {
             return new RouterMessage(getMainMenu(), false, true);
         }
+        if (userInput.equals("new")){
+            return new RouterMessage(getMainMenuNew(), false, true);
+        }
         if (userInput.equals("0")) {
             return new RouterMessage("", true, false);
         }
@@ -106,6 +109,21 @@ public class MainMenuActionHandler implements IActionHandler {
                 "****4.       List Movies                 ****\n" +
                 "****5.       CheckOut Movies             ****\n" +
                 "****6.       Login                       ****\n" +
+                "****0.       Quit                        ****\n" +
+                "*********************************************\n" +
+                "please input what your choose:\n";
+    }
+
+    private static String getMainMenuNew(){
+        return "****         This is our Main Menu       ****\n" +
+                "*********************************************\n" +
+                "****1.       List Books                  ****\n" +
+                "****2.       CheckOut Books              ****\n" +
+                "****3.       Return Books                ****\n" +
+                "****4.       List Movies                 ****\n" +
+                "****5.       CheckOut Movies             ****\n" +
+                "****6.       Login                       ****\n" +
+                "****7.       User Information            ****\n" +
                 "****0.       Quit                        ****\n" +
                 "*********************************************\n" +
                 "please input what your choose:\n";

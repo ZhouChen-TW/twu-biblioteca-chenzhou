@@ -23,7 +23,7 @@ public class LoginActionHandler implements IActionHandler {
         boolean checkoutLogin = myService.checkoutLogin(userInput);
         if(checkoutLogin){
             myContext.setNestState(RouterState.MainMenu);
-            return new RouterMessage("",false,false);
+            return new RouterMessage("new",false,false);
         }
         myContext.setNestState(RouterState.MainMenu);
         return new RouterMessage("",false,false);
