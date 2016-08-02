@@ -135,4 +135,14 @@ public class BibliotecaServiceTest {
         assertEquals("director2",movies.get(2).getDirector());
         assertEquals("2",movies.get(2).getMovieRating());
     }
+
+    @Test
+    public void should_return_true_when_calling_chekout_movies_if_the_movie_exist(){
+        assertTrue(bibliotecaService.checkoutMovies("name0"));
+    }
+
+    @Test
+    public void should_return_false_when_calling_chekout_movies_if_the_movie_does_not_exist(){
+        assertFalse(bibliotecaService.checkoutMovies("invalid name"));
+    }
 }

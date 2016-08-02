@@ -13,10 +13,21 @@ public class BibliotecaService {
 
     public BibliotecaService() {
         loadAllBookList();
+        loadAllMovieList();
+    }
+
+    private void loadAllMovieList() {
+        myAllMovies.add(new Movie("name0","1990","director0","unrated"));
+        myAllMovies.add(new Movie("name1","1991","director1","1"));
+        myAllMovies.add(new Movie("name2","1992","director2","2"));
     }
 
     private List<Book> getMyAllBooks() {
         return myAllBooks;
+    }
+
+    public List<Movie> getMyAllMovies() {
+        return myAllMovies;
     }
 
     private void loadAllBookList(){
@@ -26,9 +37,6 @@ public class BibliotecaService {
     }
 
     public List<Movie> listMoves(){
-        myAllMovies.add(new Movie("name0","1990","director0","unrated"));
-        myAllMovies.add(new Movie("name1","1991","director1","1"));
-        myAllMovies.add(new Movie("name2","1992","director2","2"));
         return  myAllMovies;
     }
 
@@ -71,5 +79,14 @@ public class BibliotecaService {
         }
         return false;
 
+    }
+
+    public boolean checkoutMovies(String movieName) {
+        for (Movie movie : getMyAllMovies()){
+            if (movieName.equals(movie.getName())){
+                return true;
+            }
+        }
+        return false;
     }
 }
