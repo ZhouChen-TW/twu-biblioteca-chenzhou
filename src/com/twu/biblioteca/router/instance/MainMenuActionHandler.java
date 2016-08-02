@@ -48,7 +48,7 @@ public class MainMenuActionHandler implements IActionHandler {
                 return new RouterMessage("", false, true);
             }
             myContext.setNestState(RouterState.Login);
-            return new RouterMessage("please input your message with this format (library number,password)", false, true);
+            return new RouterMessage("", false, true);
         }
         if (userInput.equals("4")) {
             List<Movie> myAllMovies = myService.listMoves();
