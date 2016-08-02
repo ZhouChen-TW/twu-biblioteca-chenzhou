@@ -190,4 +190,14 @@ public class BibliotecaServiceTest {
         assertEquals(bibliotecaService.getUser().getEmail(),"email0");
         assertEquals(bibliotecaService.getUser().getPhone(),"phone0");
     }
+
+    @Test
+    public void should_display_nothing_when_user_has_not_login(){
+        User user = new User(false);
+        bibliotecaService.setUser(user);
+        bibliotecaService.checkoutLogin("100-0001,000001");
+        assertEquals(bibliotecaService.getUser().getName(),null);
+        assertEquals(bibliotecaService.getUser().getEmail(),null);
+        assertEquals(bibliotecaService.getUser().getPhone(),null);
+    }
 }
