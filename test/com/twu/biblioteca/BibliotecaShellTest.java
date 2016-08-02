@@ -355,4 +355,16 @@ public class BibliotecaShellTest {
 
         assertEquals(message.getUserInput(),"****    name: name0  email address: email0  phone number: phone0");
     }
+
+    @Test
+    public void should_display_main_menu_if_user_select_user_information_and_continue_exection_when_current_state_is_main_menu() throws NoSuchProviderException {
+        User userLogin = new User(true);
+        bibliotecaService.setUser(userLogin);
+        bibliotecaService.checkoutLogin("100-0001,000000");
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
+        router.getRouterMessage("7");
+        RouterMessage message = router.getRouterMessage("new");
+
+        assertEquals(message.getUserInput(),getMainMenuNew());
+    }
 }
