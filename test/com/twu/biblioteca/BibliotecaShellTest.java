@@ -261,4 +261,14 @@ public class BibliotecaShellTest {
 
         assertEquals(message.getUserInput(),"please input your message with this format (library number,password)");
     }
+
+    @Test
+    public void should_waiting_for_user_input_when_user_select_login_and_current_state_is_main_menu() throws NoSuchProviderException {
+        User userLogin = new User(false);
+        bibliotecaService.setUser(userLogin);
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu,bibliotecaService);
+        RouterMessage message = router.getRouterMessage("6");
+
+        assertTrue(message.isWaitForInput());
+    }
 }

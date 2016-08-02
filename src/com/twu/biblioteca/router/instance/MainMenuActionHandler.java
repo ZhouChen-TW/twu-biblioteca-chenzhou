@@ -64,7 +64,7 @@ public class MainMenuActionHandler implements IActionHandler {
         }
         if (userInput.equals("6")) {
             if (user.isLoginState()){
-                return new RouterMessage("",false,false);
+                return new RouterMessage("",false,true);
             }
             myContext.setNestState(RouterState.Login);
             return new RouterMessage("please input your message with this format (library number,password)", false, true);
