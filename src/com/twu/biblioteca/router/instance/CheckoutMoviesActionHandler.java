@@ -1,17 +1,19 @@
 package com.twu.biblioteca.router.instance;
 
 import com.twu.biblioteca.model.RouterState;
+import com.twu.biblioteca.router.IActionHandler;
 import com.twu.biblioteca.router.RouterContext;
 import com.twu.biblioteca.router.RouterMessage;
-import com.twu.biblioteca.router.IActionHandler;
 import com.twu.biblioteca.service.BibliotecaService;
 
-
-public class CheckoutActionHandler implements IActionHandler {
+/**
+ * Created by chenzhou on 8/2/16.
+ */
+public class CheckoutMoviesActionHandler implements IActionHandler {
     private RouterContext myContext;
     private BibliotecaService myService;
 
-    public CheckoutActionHandler(RouterContext myContext, BibliotecaService myService) {
+    public CheckoutMoviesActionHandler(RouterContext myContext, BibliotecaService myService) {
         this.myContext = myContext;
         this.myService = myService;
     }
@@ -22,9 +24,9 @@ public class CheckoutActionHandler implements IActionHandler {
         if (checkoutSuccess)
         {
             myContext.setNestState(RouterState.MainMenu);
-            return new RouterMessage("Thank you! Enjoy the book!\n\n",false,false);
+            return new RouterMessage("",false,false);
         }
         myContext.setNestState(RouterState.MainMenu);
-        return new RouterMessage("That book is not available.\n\n",false,false);
+        return new RouterMessage("",false,false);
     }
 }

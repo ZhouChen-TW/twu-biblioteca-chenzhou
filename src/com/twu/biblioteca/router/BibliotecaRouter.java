@@ -1,10 +1,7 @@
 package com.twu.biblioteca.router;
 
 import com.twu.biblioteca.model.RouterState;
-import com.twu.biblioteca.router.instance.CheckoutActionHandler;
-import com.twu.biblioteca.router.instance.InitializeActionHandler;
-import com.twu.biblioteca.router.instance.MainMenuActionHandler;
-import com.twu.biblioteca.router.instance.ReturnActionHandler;
+import com.twu.biblioteca.router.instance.*;
 import com.twu.biblioteca.service.BibliotecaService;
 
 import java.security.NoSuchProviderException;
@@ -31,10 +28,13 @@ public class BibliotecaRouter {
             return new MainMenuActionHandler(myContext, myService);
         }
         if(myContext.getCurrentState() == RouterState.CheckoutBooks) {
-            return new CheckoutActionHandler(myContext, myService);
+            return new CheckoutBooksActionHandler(myContext, myService);
         }
         if (myContext.getCurrentState() == RouterState.Return){
             return new ReturnActionHandler(myContext, myService);
+        }
+        if(myContext.getCurrentState() == RouterState.CheckoutMovies) {
+            return new CheckoutMoviesActionHandler(myContext, myService);
         }
         throw new NoSuchProviderException("Not supported error");
     }

@@ -230,4 +230,13 @@ public class BibliotecaShellTest {
 
         assertTrue(message.isWaitForInput());
     }
+
+    @Test
+    public void given_user_input_in_checkout_movies_state_when_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
+            BibliotecaRouter router = new BibliotecaRouter(RouterState.CheckoutMovies,bibliotecaService);
+        router.getRouterMessage("5");
+        RouterMessage message = router.getRouterMessage(null);
+
+        assertEquals(message.getUserInput(),getMainMenu());
+    }
 }
