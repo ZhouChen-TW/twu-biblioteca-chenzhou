@@ -213,4 +213,12 @@ public class BibliotecaShellTest {
                 "****    name1  1991  director1  1\n****    name2  1992  director2  2\n");
     }
 
+    @Test
+    public void given_user_input_list_movies_in_main_menu_state_when_continue_execution_then_main_menu_should_be_displayed() throws NoSuchProviderException {
+        BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
+        router.getRouterMessage("4");
+        routerMessage message = router.getRouterMessage(null);
+
+        assertEquals(message.getUserInput(),getMainMenu());
+    }
 }
