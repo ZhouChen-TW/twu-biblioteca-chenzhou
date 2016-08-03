@@ -6,9 +6,7 @@ import com.twu.biblioteca.router.RouterContext;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.service.BibliotecaService;
 
-/**
- * Created by chenzhou on 8/2/16.
- */
+
 public class CheckoutMoviesActionHandler implements IActionHandler {
     private RouterContext myContext;
     private BibliotecaService myService;

@@ -1,7 +1,6 @@
 package com.twu.biblioteca.router.instance;
 
 import com.twu.biblioteca.model.RouterState;
-import com.twu.biblioteca.model.User;
 import com.twu.biblioteca.router.RouterContext;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.router.IActionHandler;

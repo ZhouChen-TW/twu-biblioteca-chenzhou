@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.model.User;
+import com.twu.biblioteca.repository.FixtureMainMenu;
 import com.twu.biblioteca.router.BibliotecaRouter;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.service.BibliotecaService;
@@ -18,39 +19,12 @@ import static org.junit.Assert.assertTrue;
 
 public class BibliotecaShellTest {
     private BibliotecaService bibliotecaService;
+    private FixtureMainMenu fixtureMainMenu;
 
     @Before
     public void setUp() throws Exception {
         bibliotecaService = new BibliotecaService();
-    }
-
-    private static String getMainMenu(){
-        return "****         This is our Main Menu       ****\n" +
-                "*********************************************\n" +
-                "****1.       List Books                  ****\n" +
-                "****2.       CheckOut Books              ****\n" +
-                "****3.       Return Books                ****\n" +
-                "****4.       List Movies                 ****\n" +
-                "****5.       CheckOut Movies             ****\n" +
-                "****6.       Login                       ****\n" +
-                "****0.       Quit                        ****\n" +
-                "*********************************************\n" +
-                "please input what your choose:\n";
-    }
-
-    private static String getMainMenuNew(){
-        return "****         This is our Main Menu       ****\n" +
-                "*********************************************\n" +
-                "****1.       List Books                  ****\n" +
-                "****2.       CheckOut Books              ****\n" +
-                "****3.       Return Books                ****\n" +
-                "****4.       List Movies                 ****\n" +
-                "****5.       CheckOut Movies             ****\n" +
-                "****6.       Login                       ****\n" +
-                "****7.       User Information            ****\n" +
-                "****0.       Quit                        ****\n" +
-                "*********************************************\n" +
-                "please input what your choose:\n";
+        fixtureMainMenu = new FixtureMainMenu();
     }
 
     @Test
@@ -64,7 +38,7 @@ public class BibliotecaShellTest {
     public void should_display_main_menu_when_current_state_is_main_menu() throws IOException, NoSuchProviderException {
         BibliotecaRouter router = new BibliotecaRouter(RouterState.MainMenu, bibliotecaService);
         RouterMessage message = router.getRouterMessage(null);
-        assertTrue(message.getUserInput().contains(getMainMenu()));
+        assertTrue(message.getUserInput().contains(fixtureMainMenu.getMainMenu()));
     }
 
     @Test
@@ -92,7 +66,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("invalid input");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(), getMainMenu());
+        assertEquals(message.getUserInput(), fixtureMainMenu.getMainMenu());
     }
 
     @Test
@@ -145,7 +119,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("math");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenu());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenu());
     }
 
     @Test
@@ -164,7 +138,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("invalid input");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertTrue(message.getUserInput().contains(getMainMenu()));
+        assertTrue(message.getUserInput().contains(fixtureMainMenu.getMainMenu()));
     }
 
     @Test
@@ -213,7 +187,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("math");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertTrue(message.getUserInput().contains(getMainMenuNew()));
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenuNew());
     }
 
     @Test
@@ -231,7 +205,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("invaild name");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertTrue(message.getUserInput().contains(getMainMenu()));
+        assertTrue(message.getUserInput().contains(fixtureMainMenu.getMainMenu()));
     }
 
     @Test
@@ -251,7 +225,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("4");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenu());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenu());
     }
 
     @Test
@@ -270,7 +244,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("5");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenu());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenu());
     }
 
     @Test
@@ -279,7 +253,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("100-0001,000000");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenuNew());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenuNew());
     }
 
     @Test
@@ -333,7 +307,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("100-0001,000000");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenuNew());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenuNew());
     }
 
     @Test
@@ -344,7 +318,7 @@ public class BibliotecaShellTest {
         router.getRouterMessage("100-0001,000001");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenu());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenu());
     }
 
     @Test
@@ -367,6 +341,6 @@ public class BibliotecaShellTest {
         router.getRouterMessage("7");
         RouterMessage message = router.getRouterMessage(null);
 
-        assertEquals(message.getUserInput(),getMainMenuNew());
+        assertEquals(message.getUserInput(),fixtureMainMenu.getMainMenuNew());
     }
 }

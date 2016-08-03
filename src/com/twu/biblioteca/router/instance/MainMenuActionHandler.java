@@ -4,6 +4,7 @@ import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.model.RouterState;
 import com.twu.biblioteca.model.User;
+import com.twu.biblioteca.repository.FixtureMainMenu;
 import com.twu.biblioteca.router.RouterContext;
 import com.twu.biblioteca.router.RouterMessage;
 import com.twu.biblioteca.router.IActionHandler;
@@ -14,10 +15,12 @@ import java.util.List;
 public class MainMenuActionHandler implements IActionHandler {
     private RouterContext myContext;
     private BibliotecaService myService;
+    private FixtureMainMenu fixtureMainMenu;
 
     public MainMenuActionHandler(RouterContext myContext, BibliotecaService myService) {
         this.myContext = myContext;
         this.myService = myService;
+        fixtureMainMenu = new FixtureMainMenu();
     }
 
     @Override
@@ -25,10 +28,8 @@ public class MainMenuActionHandler implements IActionHandler {
         User user = myService.getUser();
 
         if (userInput == null) {
-            if (user.isLoginState()){
-                return new RouterMessage(getMainMenuNew(), false, true);
-            }
-            return new RouterMessage(getMainMenu(), false, true);
+            if (user.isLoginState()) return new RouterMessage(fixtureMainMenu.getMainMenuNew(), false, true);
+            return new RouterMessage(fixtureMainMenu.getMainMenu(), false, true);
         }
         if (userInput.equals("0")) {
             return new RouterMessage("", true, false);
@@ -76,7 +77,7 @@ public class MainMenuActionHandler implements IActionHandler {
             if (user.isLoginState()){
                 return new RouterMessage(formatUser(user),false,false);
             }
-            return new RouterMessage("invaild", false, true);
+            return new RouterMessage("invalid", false, true);
         }
         return new RouterMessage("Select a valid option!\n\n", false, false);
     }
@@ -107,37 +108,6 @@ public class MainMenuActionHandler implements IActionHandler {
     }
 
     private String formatUser(User user){
-        StringBuilder st = new StringBuilder();
-        st.append("****    ").append("name: ").append(user.getName()).append("  email address: ").append(user.getEmail()).append("  phone number: ").append(user.getPhone()).append("\n");
-        return st.toString();
-    }
-
-    private static String getMainMenu(){
-        return "****         This is our Main Menu       ****\n" +
-                "*********************************************\n" +
-                "****1.       List Books                  ****\n" +
-                "****2.       CheckOut Books              ****\n" +
-                "****3.       Return Books                ****\n" +
-                "****4.       List Movies                 ****\n" +
-                "****5.       CheckOut Movies             ****\n" +
-                "****6.       Login                       ****\n" +
-                "****0.       Quit                        ****\n" +
-                "*********************************************\n" +
-                "please input what your choose:\n";
-    }
-
-    private static String getMainMenuNew(){
-        return "****         This is our Main Menu       ****\n" +
-                "*********************************************\n" +
-                "****1.       List Books                  ****\n" +
-                "****2.       CheckOut Books              ****\n" +
-                "****3.       Return Books                ****\n" +
-                "****4.       List Movies                 ****\n" +
-                "****5.       CheckOut Movies             ****\n" +
-                "****6.       Login                       ****\n" +
-                "****7.       User Information            ****\n" +
-                "****0.       Quit                        ****\n" +
-                "*********************************************\n" +
-                "please input what your choose:\n";
+        return "****    " + "name: " + user.getName() + "  email address: " + user.getEmail() + "  phone number: " + user.getPhone() + "\n";
     }
 }
