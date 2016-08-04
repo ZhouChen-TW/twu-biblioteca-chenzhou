@@ -17,31 +17,15 @@ public class Movie {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getYear() {
         return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
     }
 
     public String getDirector() {
         return director;
     }
 
-    public void setDirector(String director) {
-        this.director = director;
-    }
-
     public String getMovieRating() {
         return movieRating;
-    }
-
-    public void setMovieRating(String movieRating) {
-        this.movieRating = movieRating;
     }
 }
